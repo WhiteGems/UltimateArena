@@ -103,8 +103,8 @@ public class ArenaCreator
 		this.step = steps.get(stepnum);
 		
 		Player pl = Util.matchPlayer(player);
-		pl.sendMessage(ChatColor.GRAY + "Arena: " + ChatColor.GOLD + arenaName + ChatColor.GRAY + " has been initialised. Type: " + ChatColor.GOLD + arenaType);
-		pl.sendMessage(ChatColor.GRAY + "Please set two points for a lobby! " + ChatColor.GOLD + "/ua setpoint");
+		pl.sendMessage(ChatColor.GRAY + "竞技场: " + ChatColor.GOLD + arenaName + ChatColor.GRAY + " 已创建. 类型: " + ChatColor.GOLD + arenaType);
+		pl.sendMessage(ChatColor.GRAY + "请为大厅选择两个顶点! " + ChatColor.GOLD + "/ua setpoint");
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -129,16 +129,16 @@ public class ArenaCreator
 			az.world = lobby1.getWorld();
 			az.save();
 			az.initialize();
-			plugin.getLogger().info("Arena created and saved: " + arenaName + "  Type: " + arenaType);
+			plugin.getLogger().info("竞技场已被创建并保存: " + arenaName + "  类型: " + arenaType);
 			plugin.loadedArena.add(az);
-			player.sendMessage(ChatColor.GRAY + "Finished arena!");
-			player.sendMessage(ChatColor.GRAY + "Use " + ChatColor.GOLD + "/ua join " + arenaName + ChatColor.GRAY + " to play!");
+			player.sendMessage(ChatColor.GRAY + "完成创建竞技场!");
+			player.sendMessage(ChatColor.GRAY + "使用 " + ChatColor.GOLD + "/ua join " + arenaName + ChatColor.GRAY + " 来加入游戏!");
 		}
 		catch(Exception e)
 		{
-			plugin.getLogger().severe("Error creating arena!");
-			player.sendMessage(ChatColor.RED + "Error creating arena: " + e.getMessage());
-			player.sendMessage(ChatColor.RED + "Check Console for more details");
+			plugin.getLogger().severe("创建竞技场时出错!");
+			player.sendMessage(ChatColor.RED + "创建竞技场时出错: " + e.getMessage());
+			player.sendMessage(ChatColor.RED + "请检查控制台寻找更多错误细节");
 			e.printStackTrace();
 		}
 		plugin.makingArena.remove(this);
@@ -150,26 +150,26 @@ public class ArenaCreator
 		{
 			if (lobby1 != null && lobby2 != null)
 			{
-				player.sendMessage(ChatColor.GRAY + "Done setting up Lobby! please set 2 points for the arena");
+				player.sendMessage(ChatColor.GRAY + "成功设置了大厅! 请为竞技场选择两个顶点");
 				stepUp();
 				return;
 			}
 			else
 			{
-				player.sendMessage(ChatColor.GRAY + "You are not done creating the lobby!");
+				player.sendMessage(ChatColor.GRAY + "你还没设置完大厅!");
 			}
 		}
 		else if (step.equalsIgnoreCase("arena")) 
 		{
 			if (arena1 != null && arena2 != null)
 			{
-				player.sendMessage(ChatColor.GRAY + "Done setting up Arena! please set a lobby spawn for RED team");
+				player.sendMessage(ChatColor.GRAY + "已设置完竞技场! 请为红队设置大厅出生点");
 				stepUp();
 				return;
 			}
 			else
 			{
-				player.sendMessage(ChatColor.GRAY + "You are not done creating the arena!");
+				player.sendMessage(ChatColor.GRAY + "你还没设置完竞技场!");
 			}
 		}
 		else if (step.equalsIgnoreCase("lobbyspawn1")) 
@@ -178,27 +178,27 @@ public class ArenaCreator
 			{
 				if (amtLobbys > 1) 
 				{
-					player.sendMessage(ChatColor.GRAY + "Done setting up lobby spawns!");
-					player.sendMessage(ChatColor.GRAY + "Please create the RED team arena spawnpoint");
+					player.sendMessage(ChatColor.GRAY + "已设置大厅出生点!");
+					player.sendMessage(ChatColor.GRAY + "请设置红队竞技场出生点");
 					stepUp();
 				}
 				else
 				{
 					if (arenaType.equals("koth") || arenaType.equals("ffa") || arenaType.equals("hunger"))
 					{
-						player.sendMessage(ChatColor.GRAY + "Please add some player spawnpoints  " + ChatColor.LIGHT_PURPLE + "/ua setpoint");
-						player.sendMessage(ChatColor.GRAY + "use " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " when done");
+						player.sendMessage(ChatColor.GRAY + "请加入一些玩家出生点  " + ChatColor.LIGHT_PURPLE + "/ua setpoint");
+						player.sendMessage(ChatColor.GRAY + "使用 " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " 来结束加入");
 					}
 					else
 					{
 						if (arenaType.equals("spleef"))
 						{
-							player.sendMessage(ChatColor.GRAY + "Done with lobby spawns");
-							player.sendMessage(ChatColor.GRAY + "   -please create 2 spleefzone points");
+							player.sendMessage(ChatColor.GRAY + "设置大厅出生点完毕");
+							player.sendMessage(ChatColor.GRAY + "   -请设置两个spleef区域点");
 						}
 						else
 						{
-							player.sendMessage(ChatColor.GRAY + "Done with lobby spawns, please create an arena spawnpoint(s)");
+							player.sendMessage(ChatColor.GRAY + "设置大厅出生点完毕, 请设置竞技场出生点");
 						}
 					}
 				}
@@ -207,7 +207,7 @@ public class ArenaCreator
 			}
 			else
 			{
-				player.sendMessage(ChatColor.GRAY + "You are not done creating the lobby 1 spawn!");
+				player.sendMessage(ChatColor.GRAY + "你没有设置完出生点!");
 			}
 		}
 		else if (step.equalsIgnoreCase("arenaspawn1")) 
@@ -219,38 +219,38 @@ public class ArenaCreator
 				{
 					if (team2spawn != null) 
 					{
-						player.sendMessage(ChatColor.GRAY + "Done with player spawns");
+						player.sendMessage(ChatColor.GRAY + "设置玩家出生点完毕");
 						stepUp();//get passed arenaspawn2 step, since it's created already :3 (fail coding, I know)
 						if (arenaType.equals("cq"))
 						{
-							player.sendMessage(ChatColor.GRAY + "Please add some flag points");
-							player.sendMessage(ChatColor.GRAY + "use " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " when done");
+							player.sendMessage(ChatColor.GRAY + "请添加旗帜点");
+							player.sendMessage(ChatColor.GRAY + "输入 " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " 来完成添加");
 						}
 						if (arenaType.equals("bomb") || arenaType.equals("ctf"))
 						{
-							player.sendMessage(ChatColor.GRAY + "Please add 2 flag points");
-							player.sendMessage(ChatColor.GRAY + "use " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " when done");
+							player.sendMessage(ChatColor.GRAY + "请添加两个旗帜点");
+							player.sendMessage(ChatColor.GRAY + "输入 " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " 来完成添加");
 						}
 					}
 					else
 					{
-						player.sendMessage(ChatColor.GRAY + "You are not done creating the BLUE team arena spawn point!");
+						player.sendMessage(ChatColor.GRAY + "你还没设置蓝队的竞技场出生点!");
 						stepDown();
 					}
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "Done with player spawns");
+					player.sendMessage(ChatColor.GRAY + "设置玩家出生点完毕");
 					if (arenaType.equals("mob"))
 					{
-						player.sendMessage(ChatColor.GRAY + "Please set some mob spawnpoints");
-						player.sendMessage(ChatColor.GRAY + "use " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " when done");
+						player.sendMessage(ChatColor.GRAY + "请设置怪物出生点");
+						player.sendMessage(ChatColor.GRAY + "使用 " + ChatColor.GOLD + "/ua done" + ChatColor.GRAY + " 来完成添加");
 					}
 				}
 			}
 			else
 			{
-				player.sendMessage(ChatColor.GRAY + "You are not done creating the RED team arena spawn point!");
+				player.sendMessage(ChatColor.GRAY + "你还没添加红队经经常出生点!");
 			}
 		}
 		else
@@ -260,15 +260,15 @@ public class ArenaCreator
 				if (spawns.size() > 0) 
 				{
 					stepUp();
-					player.sendMessage(ChatColor.GRAY + "Done with player spawns");
+					player.sendMessage(ChatColor.GRAY + "成功设置玩家出生点");
 					if (arenaType.equals("koth"))
 					{
-						player.sendMessage(ChatColor.GRAY + "please add a flag spawn");	
+						player.sendMessage(ChatColor.GRAY + "请添加旗帜点");	
 					}
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "You need more than 0 player spawns");
+					player.sendMessage(ChatColor.GRAY + "你不需要再添加玩家出生点了");
 				}
 			}
 			if (step.equalsIgnoreCase("spleefzone"))
@@ -276,11 +276,11 @@ public class ArenaCreator
 				if (flags.size() == 2)
 				{
 					stepUp();
-					player.sendMessage(ChatColor.GRAY + "Done with spleef zone!");
+					player.sendMessage(ChatColor.GRAY + "成功设置完Spleef区域!");
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "You need 2 points set for the spleef zone!");
+					player.sendMessage(ChatColor.GRAY + "你需要为Spleef区域设置两个顶点!");
 				}
 			}
 			if (step.equalsIgnoreCase("outzone")) 
@@ -288,11 +288,11 @@ public class ArenaCreator
 				if (flags.size() == 4) 
 				{
 					stepUp();
-					player.sendMessage(ChatColor.GRAY + "Done with out-zone!");
+					player.sendMessage(ChatColor.GRAY + "成功设置观战区!");
 				}
 				else
 				{
-					player.sendMessage("You need 2 points set for the out-zone!");
+					player.sendMessage("你需要为观战区设置两个顶点!");
 				}
 			}
 			if (step.equalsIgnoreCase("kothflag")) 
@@ -300,11 +300,11 @@ public class ArenaCreator
 				if (flags.size() > 0) 
 				{
 					stepUp();
-					player.sendMessage(ChatColor.GRAY + "Done with flag point");
+					player.sendMessage(ChatColor.GRAY + "成功设置旗帜点");
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "You need to add a flag point");
+					player.sendMessage(ChatColor.GRAY + "你需要添加一个旗帜点");
 				}
 			}
 			if (step.equalsIgnoreCase("mobspawn"))
@@ -312,11 +312,11 @@ public class ArenaCreator
 				if (spawns.size() > 0) 
 				{
 					stepUp();
-					player.sendMessage(ChatColor.GRAY + "Done with mob spawnpoints!");
+					player.sendMessage(ChatColor.GRAY + "设置怪物出生点结束!");
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "Please set some mob spawnpoints");
+					player.sendMessage(ChatColor.GRAY + "请设置一些怪物出生点");
 				}
 			}
 			if (step.equalsIgnoreCase("flagspawn"))
@@ -327,30 +327,30 @@ public class ArenaCreator
 					{
 						if (flags.size() % 2 == 0) 
 						{
-							player.sendMessage(ChatColor.GRAY + "You need an odd number of flag spawns!");
+							player.sendMessage(ChatColor.GRAY + "你需要奇数个旗帜点!");
 						}
 						else
 						{
 							stepUp();
-							player.sendMessage(ChatColor.GRAY + "Done with flag spawnpoints!");
+							player.sendMessage(ChatColor.GRAY + "完成设置旗帜点!");
 						}
 					}
 					if (arenaType.equals("bomb") || arenaType.equals("ctf"))
 					{
 						if (flags.size() != 2) 
 						{
-							player.sendMessage("You need at least 2 flags");
+							player.sendMessage("你需要至少设置两个旗帜点");
 						}
 						else
 						{
 							stepUp();
-							player.sendMessage(ChatColor.GRAY + "Done with flag spawnpoints!");
+							player.sendMessage(ChatColor.GRAY + "已设置旗帜点!");
 						}
 					}
 				}
 				else
 				{
-					player.sendMessage(ChatColor.GRAY + "Please set some flag spawnpoints");
+					player.sendMessage(ChatColor.GRAY + "请设置旗帜点");
 				}
 			}
 		}
@@ -381,19 +381,19 @@ public class ArenaCreator
 		msg = "";
 		if (lobby1 == null)
 		{
-			lobby1 = loc; msg = "Lobby 1 point set, please set one more!";
+			lobby1 = loc; msg = "大厅第一个点已设置, 请设置第二个!";
 		}
 		else if (lobby2 == null)
 		{
-			lobby2 = loc; msg = "Lobby 2 point set, if two points are set, use" + ChatColor.GOLD + " /ua done";
+			lobby2 = loc; msg = "大厅第二个点已设置, 如果确定两个点都设置好后, 请输入" + ChatColor.GOLD + " /ua done";
 		}
 		else if (arena1 == null) 
 		{
-			arena1 = loc; msg = "Arena 1 point set, please set a second one!";
+			arena1 = loc; msg = "竞技场第一个点已设置, 请设置第二个!";
 		}
 		else if (arena2 == null)
 		{
-			arena2 = loc; msg = "Arena 2 point set, if two points are set, use" + ChatColor.GOLD + " /ua done";
+			arena2 = loc; msg = "竞技场第二个点已设置, 如果确定两个点都设置好后, 请输入" + ChatColor.GOLD + " /ua done";
 		}
 		else
 		{
@@ -401,14 +401,14 @@ public class ArenaCreator
 			{
 				if (lobbyREDspawn == null) 
 				{
-					lobbyREDspawn = loc; msg = "Red Team Lobby point set";
+					lobbyREDspawn = loc; msg = "红队大厅点已设置";
 					if (amtLobbys > 1) 
 					{
-						msg += ", please set a second one for the BLU team";
+						msg += ", 请为蓝队设置第二个点";
 					}
 					else
 					{
-						msg += ", if the lobby points are done, use" + ChatColor.GOLD + " /ua done";
+						msg += ", 如果大厅点设置完毕, 请输入" + ChatColor.GOLD + " /ua done";
 					}
 					return;
 				}
@@ -416,7 +416,7 @@ public class ArenaCreator
 				{
 					if (amtLobbys>1)
 					{
-						msg = "Blu team lobby point set!, if the lobby points are done, use" + ChatColor.GOLD + " /ua done";
+						msg = "蓝队大厅点已设置!, 如果大厅点设置完毕, 请输入" + ChatColor.GOLD + " /ua done";
 						lobbyBLUspawn = loc;
 						return;
 					}
@@ -425,14 +425,14 @@ public class ArenaCreator
 				{
 					if (team1spawn == null)
 					{
-						team1spawn = loc; msg = "RED spawn point set";
+						team1spawn = loc; msg = "红队出生点已设置";
 						if (amtSpawnpoints > 1)
 						{
-							msg += ", please set a second one for the BLU team";
+							msg += ", 请为蓝队设置第二个点";
 						}
 						else
 						{
-							msg += ", if the spawn points are done, use" + ChatColor.GOLD + " /ua done";
+							msg += ", 如果出生点设置完毕, 请输入" + ChatColor.GOLD + " /ua done";
 						}
 						return;
 					}
@@ -441,7 +441,7 @@ public class ArenaCreator
 						if (amtSpawnpoints > 1) 
 						{
 							team2spawn = loc;
-							msg = "BLUE spawn point set!, if the spawn points are done, use" + ChatColor.GOLD + " /ua done";
+							msg = "蓝队出生点已设置!, 如果出生点设置完毕, 请输入" + ChatColor.GOLD + " /ua done";
 							return;
 						}
 					}
@@ -449,34 +449,34 @@ public class ArenaCreator
 				if (step.equalsIgnoreCase("playerspawn"))
 				{
 					this.spawns.add(player.getLocation());
-					player.sendMessage(ChatColor.GRAY + "Added a player spawn!");
+					player.sendMessage(ChatColor.GRAY + "添加一个玩家出生点!");
 					return;
 				}
 				if (step.equalsIgnoreCase("spleefzone")) 
 				{
 					this.flags.add(player.getLocation());
-					player.sendMessage(ChatColor.GRAY + "Added a spleefzone!");
+					player.sendMessage(ChatColor.GRAY + "添加一个Spleef区域!");
 					return;
 				}
 				if (step.equalsIgnoreCase("outzone"))
 				{
 					this.flags.add(player.getLocation());
-					player.sendMessage(ChatColor.GRAY + "Added an outzone location!");
+					player.sendMessage(ChatColor.GRAY + "添加一个观战区!");
 					return;
 				}
 				if (step.equalsIgnoreCase("kothflag"))
 				{
 					if (flags.size() == 0) {
 						this.flags.add(player.getLocation());
-						player.sendMessage("Added the flag point!");
-						msg = "please type " + ChatColor.GOLD + "/ua done";
+						player.sendMessage("添加旗帜点!");
+						msg = "请输入 " + ChatColor.GOLD + "/ua done";
 						return;
 					}
 				}
 				if (step.equalsIgnoreCase("MobSpawn"))
 				{
 					this.spawns.add(player.getLocation());
-					player.sendMessage("Added mob spawn!");
+					player.sendMessage("添加刷怪点!");
 					return;
 				}
 				if (step.equalsIgnoreCase("flagspawn"))
@@ -486,25 +486,24 @@ public class ArenaCreator
 						if (flags.size() < 2) 
 						{
 							this.flags.add(player.getLocation());
-							player.sendMessage(ChatColor.GRAY + "Added a flag spawn!");
+							player.sendMessage(ChatColor.GRAY + "添加旗帜点!");
 						}
 						else
 						{
-							player.sendMessage(ChatColor.GRAY + "Already have 2 flags!");
+							player.sendMessage(ChatColor.GRAY + "已有两个旗帜!");
 						}
 					}
 					else
 					{
 						this.flags.add(player.getLocation());
-						player.sendMessage(ChatColor.GRAY + "Added a flag spawn!");
+						player.sendMessage(ChatColor.GRAY + "添加一个旗帜点!");
 					}
 					return;
 				}
 			}
 			catch(Exception e) 
 			{
-				player.sendMessage(ChatColor.RED + "Error creating arena. Check console.");
-				plugin.getLogger().severe("Error creating arena:");
+				player.sendMessage(ChatColor.RED + "创建竞技场时出错. 请检查控制台.");
 				e.printStackTrace();
 			}
 		}

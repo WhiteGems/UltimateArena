@@ -14,7 +14,7 @@ public class PCommandStats extends UltimateArenaCommand
 		this.name = "stats";
 		this.aliases.add("stat");
 		this.requiredArgs.add("arena");
-		this.description = "view an arena''s stats";
+		this.description = "查看一个竞技场的状态";
 	}
 	
 	@Override
@@ -29,7 +29,7 @@ public class PCommandStats extends UltimateArenaCommand
 		}
 		else
 		{
-			sendMessage(ChatColor.RED + "This arena doesn't exist!");
+			sendMessage(ChatColor.RED + "那个竞技场不存在!");
 		}
 	}
 }

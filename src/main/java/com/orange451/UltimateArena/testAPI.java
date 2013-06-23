@@ -14,12 +14,12 @@ public class testAPI
 		{
 			boolean isPlayerPlayingArena = ua.isPlayerPlayingArena(p);
 			boolean isPlayerInsideArena = ua.isPlayerInArenaLocation(p);
-			System.out.println("Player is playing arena? " + isPlayerPlayingArena);
-			System.out.println("Player is inside arena? " + isPlayerInsideArena);
+			System.out.println("玩家正在竞技场内游戏? " + isPlayerPlayingArena);
+			System.out.println("玩家在竞技场内? " + isPlayerInsideArena);
 		}
 		else
 		{
-			System.out.println("Please hook into the UA API");
+			System.out.println("请勾上 UA API");
 		}
 	}
 }

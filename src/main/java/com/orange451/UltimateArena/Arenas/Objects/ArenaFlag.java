@@ -132,7 +132,7 @@ public class ArenaFlag extends FlagBase
 			{
 				if (percent < 100) 
 				{
-					players.get(i).sendMessage(ChatColor.GRAY + "Capping! " + ChatColor.GOLD + percent  +"%");
+					players.get(i).sendMessage(ChatColor.GRAY + "扛着! " + ChatColor.GOLD + percent  +"%");
 				}
 			}
 		}
@@ -143,7 +143,7 @@ public class ArenaFlag extends FlagBase
 			{
 				if (percent < 100) 
 				{
-					players.get(i).sendMessage(ChatColor.GRAY + "Capping! " + ChatColor.GOLD + percent  +"%");
+					players.get(i).sendMessage(ChatColor.GRAY + "扛着! " + ChatColor.GOLD + percent  +"%");
 				}
 			}
 		}

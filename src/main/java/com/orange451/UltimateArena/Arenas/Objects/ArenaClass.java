@@ -91,7 +91,7 @@ public class ArenaClass
 		this.loaded = load();
 		if (!loaded)
 		{
-			plugin.getLogger().warning("Failed to load class: " + name + "!");
+			plugin.getLogger().warning("载入职业时出错: " + name + "!");
 		}
 	}
 	
@@ -322,7 +322,7 @@ public class ArenaClass
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error loading class \"" + name + "\": " + e.getMessage());
+			plugin.getLogger().severe("载入职业时出错 \"" + name + "\": " + e.getMessage());
 			return false;
 		}
 		

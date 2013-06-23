@@ -13,7 +13,7 @@ public class PCommandCreate extends UltimateArenaCommand
 		this.requiredArgs.add("name");
 		this.requiredArgs.add("type");
 		this.mode = "build";
-		this.description = "create an UltimateArena";
+		this.description = "创建一个 UltimateArena 竞技场";
 		this.permission = PermissionType.CMD_CREATE.permission;
 	}
 	

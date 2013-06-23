@@ -6,11 +6,9 @@ import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.World;
-import org.bukkit.block.Sign;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
-import com.orange451.UltimateArena.Arenas.Objects.ArenaSign;
 import com.orange451.UltimateArena.Arenas.Objects.ArenaZone;
 import com.orange451.UltimateArena.Arenas.Objects.SavedArenaPlayer;
 
@@ -57,7 +55,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving whitelisted cmds file: " + e.getMessage());
+			plugin.getLogger().severe("保存指令白名单文件时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -196,7 +194,6 @@ public class FileHelper
 				fc.set("gameTime", 1200);
 				fc.set("lobbyTime", 90);
 				fc.set("maxDeaths", 0);
-				fc.set("maxWave", 15);
 				fc.set("allowTeamKilling", false);
 				fc.set("cashReward", 15);
 				
@@ -245,7 +242,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error generating config \"" + field + "\": " + e.getMessage());
+			plugin.getLogger().severe("在生成配置 \"" + field + "\"时发生错误: " + e.getMessage());
 		}
 	}
 
@@ -264,7 +261,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving archer file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存archer.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(archerFile, "archer");
 		
@@ -276,7 +273,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving brute file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存brute.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(bruteFile, "brute");
 		
@@ -288,7 +285,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving dumbass file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存dumbass.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(dumbassFile, "dumbass");
 		
@@ -300,7 +297,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving gunner file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存gunner.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(gunnerFile, "gunner");
 		
@@ -312,7 +309,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving healer file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存healer.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(healerFile, "healer");
 		
@@ -324,7 +321,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving shotgun file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存shotgun.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(shotgunFile, "shotgun");
 		
@@ -336,7 +333,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving sniper file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存sniper.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(sniperFile, "sniper");
 		
@@ -348,7 +345,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving spleef file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存spleef.yml文件时发生错误: " + e.getMessage()); 
 		}
 		generateClass(spleefFile, "spleef");
 	}
@@ -453,7 +450,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving \"" + type + "\" file: " + e.getMessage());
+			plugin.getLogger().severe("保存 \"" + type + "\" 文件时发生错误: " + e.getMessage());
 		}
 	}
 
@@ -717,7 +714,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving arena \"" + az.arenaName + "\": " + e.getMessage());
+			plugin.getLogger().severe("保存竞技场 \"" + az.arenaName + "\"时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -882,7 +879,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error loading arena \"" + az.arenaName + "\": " + e.getMessage());
+			plugin.getLogger().severe("载入竞技场 \"" + az.arenaName + "\"时发生错误: " + e.getMessage());
 			az.loaded = false;
 		}
 	}
@@ -920,7 +917,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving player " + player.getName() + ": " + e.getMessage());
+			plugin.getLogger().severe("保存玩家 " + player.getName() + " 时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -977,119 +974,5 @@ public class FileHelper
 		}
 		
 		return players;
-	}
-	
-	public void saveSign(ArenaSign sign)
-	{
-		try
-		{
-			File signFile = new File(plugin.getDataFolder(), "signs.yml");
-			if (!signFile.exists()) signFile.createNewFile();
-			
-			YamlConfiguration fc = YamlConfiguration.loadConfiguration(signFile);
-			fc.set("total", 0);
-			
-			String path = "signs." + fc.getInt("total") + ".";
-			String locpath = path + "location.";
-			Location loc = sign.loc;
-			
-			fc.set(locpath + "world", loc.getWorld().getName());
-			fc.set(locpath + "x", loc.getBlockX());
-			fc.set(locpath + "y", loc.getBlockY());
-			fc.set(locpath + "z", loc.getBlockZ());
-			
-			fc.set(path + "autoAssign", sign.autoAssign);
-			fc.set(path + "name", sign.zone.arenaName);
-			
-			fc.set("total", fc.getInt("total") + 1);
-			
-			fc.save(signFile);
-		}
-		catch (Exception e)
-		{
-			plugin.getLogger().severe("Error saving signs: " + e.getMessage());
-		}
-	}
-	
-	public List<ArenaSign> loadSigns()
-	{
-		List<ArenaSign> signs = new ArrayList<ArenaSign>();
-		
-		File signFile = new File(plugin.getDataFolder(), "signs.yml");
-		if (!signFile.exists())
-		{
-			return signs;
-		}
-		
-		YamlConfiguration fc = YamlConfiguration.loadConfiguration(signFile);
-		for (int i=0; i<fc.getInt("signs"); i++)
-		{
-			String path = "signs" + i + ".";
-			String locpath = path + "location.";
-			
-			World world = plugin.getServer().getWorld(fc.getString(locpath + "world"));
-			Location loc = new Location(world, fc.getInt(locpath + "x"), fc.getInt(locpath + "y"), fc.getInt(locpath + "z"));
-			
-			if (world.getBlockAt(loc).getState() instanceof Sign)
-			{
-				Sign s = (Sign)world.getBlockAt(loc);
-				if (fc.getBoolean("autoAssign"))
-				{
-					ArenaSign sign = new ArenaSign(plugin, s, loc);
-					plugin.joinSigns.add(sign);
-				}
-				else
-				{
-					ArenaZone zone = plugin.getArenaZone(fc.getString("name"));
-					if (zone != null)
-					{
-						ArenaSign sign = new ArenaSign(plugin, s, loc, zone);
-						plugin.joinSigns.add(sign);
-					}
-				}
-			}
-		}
-		
-		return signs;
-	}
-	
-	public void deleteSign()
-	{
-		try
-		{
-			File signFile = new File(plugin.getDataFolder(), "signs.yml");
-			if (!signFile.exists())
-			{
-				signFile.delete();
-			}
-			
-			signFile.createNewFile();
-			
-			YamlConfiguration fc = YamlConfiguration.loadConfiguration(signFile);
-			fc.set("total", 0);
-			
-			for (ArenaSign sign : plugin.joinSigns)
-			{
-				String path = "signs." + fc.getInt("total") + ".";
-				String locpath = path + "location.";
-				Location loc = sign.loc;
-				
-				fc.set(locpath + "world", loc.getWorld().getName());
-				fc.set(locpath + "x", loc.getBlockX());
-				fc.set(locpath + "y", loc.getBlockY());
-				fc.set(locpath + "z", loc.getBlockZ());
-				
-				fc.set(path + "autoAssign", sign.autoAssign);
-				fc.set(path + "name", sign.zone.arenaName);
-				
-				fc.set("total", fc.getInt("total") + 1);
-			}
-			
-			fc.save(signFile);
-		}
-		catch (Exception e)
-		{
-			plugin.getLogger().severe("Error deleting sign: " + e.getMessage());
-		}
 	}
 }

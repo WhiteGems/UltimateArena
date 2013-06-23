@@ -108,7 +108,7 @@ public class OldArenaClass
         }
 	    catch (Exception e)
 	    {
-            plugin.getLogger().severe("Error: " + e.getMessage());
+            plugin.getLogger().severe("错误: " + e.getMessage());
         }
 	    
 	    for (int i= 0; i < file.size(); i++)

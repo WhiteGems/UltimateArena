@@ -430,11 +430,11 @@ public class FileConverter
 			
 			fc.save(file);
 			
-			plugin.getLogger().info("Successfully converted class: " + old.getName() + "!");
+			plugin.getLogger().info("成功转换职业: " + old.getName() + "!");
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error converting class \"" + old.getName() + "\": " + e.getMessage());
+			plugin.getLogger().severe("转换职业 \"" + old.getName() + "\"时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -697,11 +697,11 @@ public class FileConverter
 			
 			fc.save(file);
 			
-			plugin.getLogger().info("Successfully converted arena: " + old.getName() + "!");
+			plugin.getLogger().info("成功转换竞技场: " + old.getName() + "!");
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error converting arena \"" + old.getName() + "\": " + e.getMessage());
+			plugin.getLogger().severe("转换竞技场 \"" + old.getName() + "\"时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -787,11 +787,11 @@ public class FileConverter
 				fc.save(file);
 			}
 			
-			plugin.getLogger().info("Successfully converted arena config: " + old.getName() + "!");
+			plugin.getLogger().info("成功转换竞技场配置: " + old.getName() + "!");
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error converting arena config \"" + old.getName() + "\": " + e.getMessage());
+			plugin.getLogger().severe("转换竞技场配置 \"" + old.getName() + "\"时发生问题: " + e.getMessage());
 		}
 	}
 	

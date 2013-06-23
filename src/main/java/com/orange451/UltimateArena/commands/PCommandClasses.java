@@ -17,7 +17,7 @@ public class PCommandClasses extends UltimateArenaCommand
 		super(plugin);
 		this.name = "classes";
 		this.aliases.add("cl");
-		this.description = "List UltimateArena classes";
+		this.description = "列出 UltimateArena 的职业";
 		
 		this.mustBePlayer = false;
 	}
@@ -25,7 +25,7 @@ public class PCommandClasses extends UltimateArenaCommand
 	@Override
 	public void perform()
 	{
-		sendMessage(ChatColor.DARK_RED + "==== " + ChatColor.GOLD + "UltimateArena Classes" + ChatColor.DARK_RED + " ====");
+		sendMessage(ChatColor.DARK_RED + "==== " + ChatColor.GOLD + "UltimateArena 职业" + ChatColor.DARK_RED + " ====");
 		for (ArenaClass classes : plugin.classes)
 		{
 			String name = classes.name;

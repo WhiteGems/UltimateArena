@@ -59,7 +59,7 @@ public class FlagBase
 		}
 		catch(Exception e) 
 		{
-			plugin.getLogger().severe("Error setting up flag for arena \""+ arena.name + "\": " + e.getMessage());
+			plugin.getLogger().severe("设置竞技场 \""+ arena.name + "\"的旗帜时发生错误: " + e.getMessage());
 		}
 	}
 	

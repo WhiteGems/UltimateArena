@@ -14,7 +14,7 @@ public class PCommandForceJoin extends UltimateArenaCommand
 		this.aliases.add("fj");
 		this.requiredArgs.add("arena");
 		this.mode = "admin";
-		this.description = "force join an arena";
+		this.description = "强制加入一个竞技场";
 		this.permission = PermissionType.CMD_FORCE_JOIN.permission;
 	}
 	
@@ -22,7 +22,7 @@ public class PCommandForceJoin extends UltimateArenaCommand
 	public void perform() 
 	{
 		String name = args[0];
-		player.sendMessage(ChatColor.GOLD + "Attempthing to join arena: " + name);
+		player.sendMessage(ChatColor.GOLD + "尝试加入竞技场: " + name);
 		plugin.joinBattle(true, player, name);
 	}
 }

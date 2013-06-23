@@ -11,7 +11,7 @@ public class PCommandStop extends UltimateArenaCommand
 		this.name = "stop";
 		this.aliases.add("s");
 		this.mode = "build";
-		this.description = "stop building an arena";
+		this.description = "停止建立一个竞技场";
 		this.permission = PermissionType.CMD_STOP.permission;
 	}
 	
@@ -24,7 +24,7 @@ public class PCommandStop extends UltimateArenaCommand
 		}
 		else
 		{
-			sendMessage("&cYou are not creating an arena!");
+			sendMessage("&c你没有在建立竞技场!");
 		}
 	}
 }

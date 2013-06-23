@@ -48,9 +48,9 @@ public class INFECTArena extends PVPArena
 				apl.player = Util.matchPlayer(apl.username);
 				apl.team = 2;
 				//spawn(apl.player.getName(), true);
-				apl.player.sendMessage(ChatColor.BLUE + "You have been chosen for the infected!");
+				apl.player.sendMessage(ChatColor.BLUE + "你成为了感染者!");
 				onSpawn(apl);
-				tellPlayers("&c{0} &bis the zombie!", apl.player.getName());
+				tellPlayers("&c{0} &b现在是僵尸了!", apl.player.getName());
 			}
 			else
 			{
@@ -59,7 +59,7 @@ public class INFECTArena extends PVPArena
 		}
 		else
 		{
-			this.tellPlayers(ChatColor.RED + "Error starting!");
+			this.tellPlayers(ChatColor.RED + "开始时发生错误!");
 			stop();
 		}
 	}
@@ -94,13 +94,13 @@ public class INFECTArena extends PVPArena
 					if (this.team1size == 0)
 					{
 						this.setWinningTeam(2);
-						this.tellPlayers(ChatColor.BLUE + "Infected Win!");
+						this.tellPlayers(ChatColor.BLUE + "僵尸获胜!");
 						this.stop();
-						this.rewardTeam(2, ChatColor.YELLOW + "You win!", true);
+						this.rewardTeam(2, ChatColor.YELLOW + "你获胜了!", true);
 					}
 					else
 					{
-						this.tellPlayers(ChatColor.BLUE + "One team is empty! game ended!");
+						this.tellPlayers(ChatColor.BLUE + "一支队伍已没有玩家! 游戏结束!");
 						this.stop();
 					}
 				}
@@ -108,7 +108,7 @@ public class INFECTArena extends PVPArena
 				{
 					if (this.amtPlayersStartingInArena <= 1) 
 					{
-						this.tellPlayers(ChatColor.BLUE + "Not enough people to play!");
+						this.tellPlayers(ChatColor.BLUE + "玩家数量不足以开始游戏!");
 						this.stop();
 					}
 				}
@@ -116,7 +116,7 @@ public class INFECTArena extends PVPArena
 		}
 		catch(Exception e) 
 		{
-			plugin.getLogger().severe("Error with Infect:");
+			plugin.getLogger().severe("感染模式发生问题:");
 			e.printStackTrace();
 		}
 	}
@@ -130,7 +130,7 @@ public class INFECTArena extends PVPArena
 	@Override
 	public void onOutOfTime() 
 	{
-		this.rewardTeam(1, ChatColor.BLUE + "You survived!", false);
+		this.rewardTeam(1, ChatColor.BLUE + "你幸存了!", false);
 	}
 	
 	@Override
@@ -138,7 +138,7 @@ public class INFECTArena extends PVPArena
 	{
 		if (pl.team == 1)
 		{
-			pl.player.sendMessage(ChatColor.AQUA + "You have joined the Infected!");
+			pl.player.sendMessage(ChatColor.AQUA + "你已加入这场感染模式比赛!");
 		}
 		pl.team = 2;
 	}

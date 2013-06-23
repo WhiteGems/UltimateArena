@@ -62,7 +62,7 @@ public class CTFflag
 		}
 		catch(Exception e) 
 		{
-			plugin.getLogger().severe("Error respawning flag: " + e.getMessage());
+			plugin.getLogger().severe("生成旗帜时出错: " + e.getMessage());
 		}
 	}
 	
@@ -76,7 +76,7 @@ public class CTFflag
 	
 	public void sayTimeLeft() 
 	{
-		arena.tellPlayers("&d{0} &7seconds left until &6{1} &7flag returns!", timer, flagType);
+		arena.tellPlayers("&d{0} &7秒剩余直到 &6{1} &7旗回归!", timer, flagType);
 	}
 	
 	public void setup()
@@ -93,12 +93,12 @@ public class CTFflag
 		if (team == 1) 
 		{
 			color = 14; // red team
-			flagType = ChatColor.RED + "RED";
+			flagType = ChatColor.RED + "红队";
 		}
 		else
 		{
 			color = 11; //blue team
-			flagType = ChatColor.BLUE + "BLUE";
+			flagType = ChatColor.BLUE + "蓝队";
 		}
 		
 		class ColorizeTask extends BukkitRunnable
@@ -115,7 +115,7 @@ public class CTFflag
 	
 	public void fall() 
 	{
-		arena.tellPlayers("&b{0} &7has dropped the &6{1} &7flag!", riding.getName(), flagType);
+		arena.tellPlayers("&b{0} &7掉落了 &6{1} &7的旗帜!", riding.getName(), flagType);
 		timer = 15;
 		toloc = riding.getLocation();
 		pickedUp = false;
@@ -180,7 +180,7 @@ public class CTFflag
 								riding = pl;
 								pl.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 20 * (60 * 4), 1));
 								pl.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20 * (60 * 4), 1));
-								arena.tellPlayers("&b{0} &7picked up the &6{1} &7flag!", arenaplayers.get(i).player.getName(), flagType);
+								arena.tellPlayers("&b{0} &7扛起了 &6{1} &7的旗帜!", arenaplayers.get(i).player.getName(), flagType);
 								return;
 							}
 							else
@@ -188,9 +188,9 @@ public class CTFflag
 								if (!myloc.equals(returnto)) 
 								{ 
 									//if the flag is not at its flagstand
-									pl.sendMessage(ChatColor.GRAY + "Flag Returned! " + ChatColor.RED + " +50 XP");
+									pl.sendMessage(ChatColor.GRAY + "旗帜已收回! " + ChatColor.RED + " +50 XP");
 									arenaplayers.get(i).XP += 50;
-									arena.tellPlayers("&b{0} &7returned the &6{1} &7flag!", pl.getName(), flagType);
+									arena.tellPlayers("&b{0} &7收回了 &6{1} &7旗帜!", pl.getName(), flagType);
 									respawn();
 									return;
 								}
@@ -248,7 +248,7 @@ public class CTFflag
 				{
 					respawn();
 					
-					arena.tellPlayers("&7The {0} &7flag has respawned!", flagType);
+					arena.tellPlayers("&7{0} &7旗帜已重新生成!", flagType);
 				}
 				else
 				{

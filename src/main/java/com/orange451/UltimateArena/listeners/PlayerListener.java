@@ -26,7 +26,6 @@ import com.orange451.UltimateArena.Arenas.Arena;
 import com.orange451.UltimateArena.Arenas.SPLEEFArena;
 import com.orange451.UltimateArena.Arenas.Objects.ArenaClass;
 import com.orange451.UltimateArena.Arenas.Objects.ArenaPlayer;
-import com.orange451.UltimateArena.Arenas.Objects.ArenaZone;
 
 public class PlayerListener implements Listener 
 {
@@ -63,7 +62,7 @@ public class PlayerListener implements Listener
 		{
 			if (plugin.isInArena(player.getLocation())) 
 			{
-				if (event.getReason().equals("You moved too quickly :( (Hacking?)")) 
+				if (event.getReason().equals("你移动的速度实在是太快了 :( (作弊了吧?)")) 
 				{
 					event.setCancelled(true);
 				}
@@ -137,7 +136,7 @@ public class PlayerListener implements Listener
 					if (event.hasBlock()) 
 					{
 						Block block = event.getClickedBlock();
-						if (block.getState() instanceof Sign) 
+						if(block.getState() instanceof Sign) 
 						{
 							Sign s = (Sign)block.getState();
 							String line1 = s.getLine(0);
@@ -150,16 +149,16 @@ public class PlayerListener implements Listener
 									if (arc.checkPermission(player))
 									{
 										ac.mclass = arc;
-										player.sendMessage(ChatColor.GRAY + "You will spawn as a(n): " + ChatColor.GOLD + line1);
+										player.sendMessage(ChatColor.GRAY + "你即将以此职业出生: " + ChatColor.GOLD + line1);
 									}
 									else 
 									{
-										player.sendMessage(ChatColor.RED + "You do not have the necessary perms for this class");
+										player.sendMessage(ChatColor.RED + "你没有使用这个职业的权限");
 									}
 								} 
 								else 
 								{
-									player.sendMessage(ChatColor.RED + "Error: \"" + line1 + "\" is not a class!");
+									player.sendMessage(ChatColor.RED + "错误: \"" + line1 + "\" 并不是一个职业!");
 								}
 							}
 						}
@@ -182,85 +181,6 @@ public class PlayerListener implements Listener
 									if (splf.isInside(block.getLocation())) 
 									{
 										block.setType(Material.AIR);
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onPlayerInteract1(PlayerInteractEvent event)
-	{
-		Player player = event.getPlayer();
-		Action action = event.getAction();
-		if (action.equals(Action.RIGHT_CLICK_BLOCK))
-		{
-			if (event.hasBlock()) 
-			{
-				Block block = event.getClickedBlock();
-				if (block.getState() instanceof Sign) 
-				{
-					Sign s = (Sign)block.getState();
-					if (s.getLine(0).equalsIgnoreCase("[UltimateArena]"))
-					{
-						if (s.getLine(1).equalsIgnoreCase("Click to join"))
-						{
-							if (s.getLine(2).equalsIgnoreCase("Auto assign"))
-							{
-								boolean found = false;
-								if (plugin.activeArena.size() > 0)
-								{
-									for (Arena a : plugin.activeArena)
-									{
-										if (a.starttimer > 1)
-										{
-											plugin.fight(player, a.name);
-											found = true;
-										}
-									}
-								}
-								if (!found)
-								{
-									if (plugin.loadedArena.size() > 0)
-									{
-										ArenaZone az = plugin.loadedArena.get(0);
-										if (az != null)
-										{
-											plugin.fight(player, az.arenaName);
-											found = true;
-										}
-									}
-								}
-							}
-							else
-							{
-								String name = s.getLine(2);
-								boolean found = false;
-								for (Arena a : plugin.activeArena)
-								{
-									if (a.name.equalsIgnoreCase(name) && a.starttimer > 1)
-									{
-										plugin.fight(player, a.name);
-										found = true;
-									}
-								}
-								if (!found)
-								{
-									for (ArenaZone az : plugin.loadedArena)
-									{
-										if (az != null && az.arenaName.equalsIgnoreCase(name))
-										{
-											plugin.fight(player, az.arenaName);
-											found = true;
-										}
-									}
-									if (!found)
-									{
-										player.sendMessage(ChatColor.RED + "No arena by the name of \"" + name + "\" exists!");
 									}
 								}
 							}
@@ -314,7 +234,7 @@ public class PlayerListener implements Listener
 		{
 			if (plugin.waiting.get(i).player.getName().equals(p.getName()))
 			{
-				plugin.waiting.get(i).player.sendMessage(ChatColor.RED + "Cancelled!");
+				plugin.waiting.get(i).player.sendMessage(ChatColor.RED + "已取消!");
 				plugin.waiting.get(i).cancel();
 				plugin.waiting.remove(i);
 			}
@@ -328,8 +248,8 @@ public class PlayerListener implements Listener
 		String[] check = cmd.split(" ");
 		if (!cmd.contains("/ua") && plugin.isInArena(event.getPlayer()) && !plugin.wcmd.isAllowed(check))
 		{
-			event.getPlayer().sendMessage(ChatColor.GRAY + "You cannot use non-ua commands in an arena!");
-			event.getPlayer().sendMessage(ChatColor.GRAY + "If you wish to use commands again, use " + ChatColor.LIGHT_PURPLE + "/ua leave");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "你不能在竞技场内使用非UA插件的指令!");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "如果你想再次使用指令, 请输入 " + ChatColor.LIGHT_PURPLE + "/ua leave");
 			event.setCancelled(true);
 			return;
 		}

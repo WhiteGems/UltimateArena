@@ -14,7 +14,7 @@ public class PCommandStart extends UltimateArenaCommand
 		this.name = "start";
 		this.requiredArgs.add("arena");
 		this.mode = "admin";
-		this.description = "force start an arena";
+		this.description = "强制开始一个竞技场";
 		this.permission = PermissionType.CMD_START.permission;
 		
 		this.mustBePlayer = false;
@@ -27,11 +27,11 @@ public class PCommandStart extends UltimateArenaCommand
 		Arena arena = plugin.getArena(name);
 		if (arena == null)
 		{
-			player.sendMessage(ChatColor.GOLD + "No arena with that name...");
+			player.sendMessage(ChatColor.GOLD + "没有以那个名字命名的竞技场...");
 			return;
 		}
 			
 		arena.start();
-		player.sendMessage(ChatColor.GOLD + "Starting arena.. " + ChatColor.AQUA + arena.name );
+		player.sendMessage(ChatColor.GOLD + "开始竞技场.. " + ChatColor.AQUA + arena.name );
 	}
 }

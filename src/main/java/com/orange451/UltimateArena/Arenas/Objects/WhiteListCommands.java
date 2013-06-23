@@ -24,14 +24,7 @@ public class WhiteListCommands
 			{
 				return true;
 			}
-			
-			StringBuilder check1 = new StringBuilder();
-			for (int i=0; i<check.length; i++)
-			{
-				check1.append(check[i]);
-			}
-			
-			if (cmd.equalsIgnoreCase(check1.toString()))
+			else if (cmd.equalsIgnoreCase(check.toString()))
 			{
 				return true;
 			}

@@ -49,12 +49,12 @@ public class BOMBArena extends Arena
 	public void onOutOfTime() 
 	{
 		setWinningTeam(2);
-		rewardTeam(2, ChatColor.BLUE + "You won!", false);
+		rewardTeam(2, ChatColor.BLUE + "你获胜了!", false);
 	}
 	
 	public synchronized void onPlayerDeath(ArenaPlayer pl)
 	{
-		az.plugin.getLogger().info("Bomb: Player("+pl.player.getName()+") has died!");
+		az.plugin.getLogger().info("炸弹: 玩家("+pl.player.getName()+") 已阵亡!");
 		if (pl.team == 1) 
 		{
 			REDTEAMPOWER--;
@@ -66,11 +66,11 @@ public class BOMBArena extends Arena
 					if (pl1 != null) {
 						if (arenaplayers.get(i).team == 1) 
 						{
-							pl1.sendMessage(ChatColor.RED + "Your power is now: " + ChatColor.GOLD + REDTEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "你的能量现已: " + ChatColor.GOLD + REDTEAMPOWER);
 						}
 						else
 						{
-							pl1.sendMessage(ChatColor.RED + "Other teams' power is now: " + ChatColor.GOLD + REDTEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "其他队伍的能量现已: " + ChatColor.GOLD + REDTEAMPOWER);
 						}
 					}
 				}
@@ -97,16 +97,16 @@ public class BOMBArena extends Arena
 		if (bomb1.exploded && bomb2.exploded)
 		{
 			setWinningTeam(1);
-			tellPlayers(ChatColor.GRAY + "Red team won!");
+			tellPlayers(ChatColor.GRAY + "红队获胜!");
 			stop();
-			rewardTeam(1, ChatColor.BLUE + "You won!", false);
+			rewardTeam(1, ChatColor.BLUE + "你获胜了!", false);
 			return;
 		}
 		
 		if (REDTEAMPOWER <= 0) 
 		{
 			setWinningTeam(2);
-			tellPlayers(ChatColor.GRAY + "Blue team won!");
+			tellPlayers(ChatColor.GRAY + "蓝队获胜!");
 			for (int i = 0; i < arenaplayers.size(); i++)
 			{
 				ArenaPlayer ap = arenaplayers.get(i);
@@ -118,14 +118,14 @@ public class BOMBArena extends Arena
 						Player p = Util.matchPlayer(ap.player.getName());
 						if (p != null) 
 						{
-							p.sendMessage(ChatColor.RED + "Your team lost! :(");
+							p.sendMessage(ChatColor.RED + "你的队伍输了! :(");
 							endPlayer(ap, false);
 						}
 					}
 				}
 			}
 			stop();
-			rewardTeam(2, ChatColor.BLUE + "You won!", false);
+			rewardTeam(2, ChatColor.BLUE + "你获胜了!", false);
 		}
 	}
 }

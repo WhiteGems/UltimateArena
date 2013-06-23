@@ -32,7 +32,7 @@ public class PVPArena extends Arena
 			{
 				this.setWinningTeam(-1);
 				this.stop();
-				this.rewardTeam(-1, ChatColor.BLUE + "You won!", false);
+				this.rewardTeam(-1, ChatColor.BLUE + "你获胜了!", false);
 			}
 		}
 	}

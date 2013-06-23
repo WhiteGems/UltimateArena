@@ -37,7 +37,7 @@ public class ArenaConfig
 		this.loaded = load();
 		if (!loaded)
 		{
-			plugin.getLogger().warning("Could not load config for " + arenaName + "!");
+			plugin.getLogger().warning("载入配置时出错: " + arenaName + "!");
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class ArenaConfig
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error while loading config for " + arenaName + ": " + e.getMessage());
+			plugin.getLogger().severe("为竞技场 " + arenaName + " 载入配置时出错: " + e.getMessage());
 			return false;
 		}
 		
@@ -167,7 +167,7 @@ public class ArenaConfig
 						{
 							plugin.getEconomy().depositPlayer(player.getName(), cashReward);
 							String format = plugin.getEconomy().format(cashReward);
-							player.sendMessage(ChatColor.GREEN + format + " has been added to your balance!");
+							player.sendMessage(ChatColor.GREEN + format + " 已被加入至你的钱包!");
 						}
 					}
 				}

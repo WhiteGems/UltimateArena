@@ -11,11 +11,11 @@ public class TeamHelper
 	public static String getTeam(int team)
 	{
 		if (team == 1)
-			return ChatColor.RED + "RED";
+			return ChatColor.RED + "红队";
 		
 		if (team == 2)
-			return ChatColor.BLUE + "BLUE";
+			return ChatColor.BLUE + "蓝队";
 		
-		return ChatColor.DARK_GRAY + "NOTEAM";
+		return ChatColor.DARK_GRAY + "无队伍";
 	}
 }

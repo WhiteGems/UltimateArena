@@ -35,7 +35,7 @@ public class BombFlag extends ArenaFlag
 
 			if (timer == 30 || timer == 20 || timer == 10 || timer <= 5) 
 			{
-				arena.tellPlayers("&7Bomb &6{0} &7 will expode in &d{1} &7seconds!", bnum, timer);
+				arena.tellPlayers("&7炸弹 &6{0} &7 将会在 &d{1} &7秒后爆炸!", bnum, timer);
 			}
 			
 			if (timer < 1) 
@@ -61,7 +61,7 @@ public class BombFlag extends ArenaFlag
 					}
 					exploded = true;
 					fused = false;
-					arena.tellPlayers("&cRED &7team blew up bomb &6{0}&7!", bnum);
+					arena.tellPlayers("&c红队 &7引爆了炸弹 &6{0}&7!", bnum);
 				}
 			}
 		}
@@ -102,12 +102,12 @@ public class BombFlag extends ArenaFlag
 					{ 
 						//team 1 is fusing
 						fuser++;
-						pl.sendMessage(FormatUtil.format("&7Fusing Bomb &6{0}! &7(&d{1}&7/&d10)", bnum, fuser));
+						pl.sendMessage(FormatUtil.format("&7放置中 &6{0}! &7(&d{1}&7/&d10)", bnum, fuser));
 						if (fuser > 10)
 						{
 							fuser = 0;
 							fused = true;
-							arena.tellPlayers("&7Bomb &6{0} &7is now &dfused&7!", bnum);
+							arena.tellPlayers("&7炸弹 &6{0} &7现已被&d放置&7!", bnum);
 						}
 					}
 				}
@@ -117,13 +117,13 @@ public class BombFlag extends ArenaFlag
 					if (fused) 
 					{
 						fuser++;
-						pl.sendMessage(FormatUtil.format("&7Defusing Bomb &6{0}! &7(&d{1}&7/&d10)", bnum, fuser));
+						pl.sendMessage(FormatUtil.format("&7拆弹中 &6{0}! &7(&d{1}&7/&d10)", bnum, fuser));
 						if (fuser > 10)
 						{
 							fuser = 0;
 							fused = false;
 							timer = 45;
-							arena.tellPlayers("&7Bomb &6{0} &7is now &ddefused&7!", bnum);
+							arena.tellPlayers("&7炸弹 &6{0} &7现已被&d拆除&7!", bnum);
 						}
 					}
 				}

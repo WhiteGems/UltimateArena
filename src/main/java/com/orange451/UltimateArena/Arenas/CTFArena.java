@@ -35,7 +35,7 @@ public class CTFArena extends Arena
 		}
 		catch(Exception e) 
 		{
-			plugin.getLogger().severe("Error setting up CTF:");
+			plugin.getLogger().severe("设置扛旗模式时出错:");
 			e.printStackTrace();
 		}
 	}
@@ -49,14 +49,14 @@ public class CTFArena extends Arena
 			{
 				if (!simpleTeamCheck(false)) 
 				{
-					this.tellPlayers(ChatColor.BLUE + "One team is empty! game ended!");
+					this.tellPlayers(ChatColor.BLUE + "一支队伍空了! 游戏已结束!");
 					this.stop();
 				}
 				else
 				{
 					if (this.amtPlayersStartingInArena <= 1) 
 					{
-						this.tellPlayers(ChatColor.BLUE + "Not enough people to play!");
+						this.tellPlayers(ChatColor.BLUE + "玩家数量不足以开始游戏!");
 						this.stop();
 					}
 				}
@@ -64,18 +64,18 @@ public class CTFArena extends Arena
 		}
 		catch(Exception e)
 		{
-			plugin.getLogger().severe("Error with CTF:");
+			plugin.getLogger().severe("扛旗模式出错:");
 			e.printStackTrace();
 		}
 		
 		if (redcap >= 3 || bluecap >= 3) 
 		{
 			this.setWinningTeam(1);
-			lastcap = ChatColor.RED + "RED";
+			lastcap = ChatColor.RED + "红队";
 			if (bluecap >= 3) 
 			{
 				this.setWinningTeam(2);
-				lastcap = ChatColor.BLUE + "BLUE";
+				lastcap = ChatColor.BLUE + "蓝队";
 			}
 			winGame();
 		}
@@ -98,13 +98,13 @@ public class CTFArena extends Arena
 		{
 			this.setWinningTeam(-1);
 			this.stop();
-			this.rewardTeam(-1, "Tie! Half prize to everyone", true);
+			this.rewardTeam(-1, "平局! 奖品对半分给所有人", true);
 			return;
 		}
 		
-		this.tellPlayers(lastcap + ChatColor.GRAY + " team won the game!");
+		this.tellPlayers(lastcap + ChatColor.GRAY + " 获胜!");
 		this.stop();
-		this.rewardTeam(this.winningTeam, "You win!", false);
+		this.rewardTeam(this.winningTeam, "你获胜了!", false);
 	}
 	
 	@Override
@@ -156,7 +156,7 @@ public class CTFArena extends Arena
 			}
 			catch(Exception ex)
 			{
-				plugin.getLogger().severe("Error executing move:");
+				plugin.getLogger().severe("执行移动时发生错误:");
 				ex.printStackTrace();
 			}
 		}

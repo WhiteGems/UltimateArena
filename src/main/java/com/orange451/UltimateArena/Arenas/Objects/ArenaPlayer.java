@@ -173,7 +173,7 @@ public class ArenaPlayer
 		}
 		catch(Exception e)
 		{
-			inArena.az.plugin.getLogger().severe("Error giving class items: " + e.getMessage());
+			inArena.az.plugin.getLogger().severe("保存职业物品时出错: " + e.getMessage());
 		}
 	}
 }

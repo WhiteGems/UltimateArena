@@ -76,7 +76,7 @@ public class ArenaZone
 		}
 		else
 		{
-			plugin.getLogger().warning("Arena: " + arenaName + " has failed to load!");
+			plugin.getLogger().warning("竞技场: " + arenaName + " 未能载入!");
 		}
 	}
 	

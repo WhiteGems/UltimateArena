@@ -12,7 +12,7 @@ public class PCommandLike extends UltimateArenaCommand
 		super(plugin);
 		this.name = "like";
 		this.requiredArgs.add("arena");
-		this.description = "like an arena";
+		this.description = "喜欢一个竞技场";
 	}
 	
 	@Override
@@ -24,19 +24,19 @@ public class PCommandLike extends UltimateArenaCommand
 		{
 			if (az.canLike(player)) 
 			{
-				sendMessage("&aYou have voted for: {0}!", az.arenaName);
+				sendMessage("&a你已喜欢了: {0}!", az.arenaName);
 				
 				az.liked++;
 				az.voted.add(player.getName());
 			}
 			else
 			{
-				sendMessage(ChatColor.RED + "You already voted for this arena!");
+				sendMessage(ChatColor.RED + "你已经投票过给这个竞技场了!");
 			}
 		}
 		else
 		{
-			sendMessage(ChatColor.RED + "This arena doesn't exist!");
+			sendMessage(ChatColor.RED + "那个竞技场并不存在!");
 		}
 	}
 }
