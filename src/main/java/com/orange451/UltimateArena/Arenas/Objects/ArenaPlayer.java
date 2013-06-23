@@ -224,7 +224,7 @@ public class ArenaPlayer
 				}
 				catch (Exception e)
 				{
-					inArena.plugin.getLogger().severe("Error giving class items: " + e.getMessage());
+					inArena.plugin.getLogger().severe("给予职业物品时出错: " + e.getMessage());
 				}
 			}
 			

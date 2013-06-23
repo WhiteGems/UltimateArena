@@ -52,7 +52,7 @@ public class BlockListener implements Listener
 				Arena arena = plugin.getArena(player);
 				if (!arena.type.equalsIgnoreCase("Hunger"))
 				{
-					player.sendMessage(ChatColor.RED + "You cannot break this!");
+					player.sendMessage(ChatColor.RED + "你不能打破这个!");
 					event.setCancelled(true);
 				}
 				// TODO: Hunger games block logging?
@@ -62,7 +62,7 @@ public class BlockListener implements Listener
 				/** The player is at the site of the arena, but not in it **/
 				if (!plugin.getPermissionHandler().hasPermission(player, PermissionType.ARENA_BUILD.permission))
 				{
-					player.sendMessage(ChatColor.RED + "You cannot break this!");
+					player.sendMessage(ChatColor.RED + "你不能打破这个!");
 					event.setCancelled(true);
 				}
 			}
@@ -91,7 +91,7 @@ public class BlockListener implements Listener
 				Arena arena = plugin.getArena(player);
 				if (!arena.type.equalsIgnoreCase("Hunger"))
 				{
-					player.sendMessage(ChatColor.RED + "You cannot place this!");
+					player.sendMessage(ChatColor.RED + "你不能放置这个!");
 					event.setCancelled(true);
 				}
 				// TODO: Hunger games block logging?
@@ -101,7 +101,7 @@ public class BlockListener implements Listener
 				/** The player is at the site of the arena, but not in it **/
 				if (!plugin.getPermissionHandler().hasPermission(player, PermissionType.ARENA_BUILD.permission))
 				{
-					player.sendMessage(ChatColor.RED + "You cannot place this!");
+					player.sendMessage(ChatColor.RED + "你不能放置这个!");
 					event.setCancelled(true);
 				}
 			}

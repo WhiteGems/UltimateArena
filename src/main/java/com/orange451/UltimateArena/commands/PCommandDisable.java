@@ -16,7 +16,7 @@ public class PCommandDisable extends UltimateArenaCommand
 		this.aliases.add("di");
 		this.optionalArgs.add("arena");
 		this.mode = "admin";
-		this.description = "disable an arena";
+		this.description = "禁用一个竞技场";
 		this.permission = PermissionType.CMD_DISABLE.permission;
 		
 		this.mustBePlayer = false;
@@ -34,12 +34,12 @@ public class PCommandDisable extends UltimateArenaCommand
 				if (aa.name.equals(at)) 
 				{
 					aa.onDisable();
-					sendMessage(ChatColor.GRAY + "Disabled " + at);
+					sendMessage(ChatColor.GRAY + "已禁止 " + at);
 				}
 				else if (aa.az.arenaType.equals(at)) 
 				{
 					aa.onDisable();
-					sendMessage(ChatColor.GRAY + " Disabled " + at);
+					sendMessage(ChatColor.GRAY + " 已禁止 " + at);
 				}
 			}
 			for (int ii = 0; ii < plugin.loadedArena.size(); ii++) 
@@ -48,12 +48,12 @@ public class PCommandDisable extends UltimateArenaCommand
 				if (aa.arenaType.equals(at))
 				{
 					aa.disabled = true;
-					sendMessage(ChatColor.GRAY + "Disabled " + at);
+					sendMessage(ChatColor.GRAY + "已禁止 " + at);
 				}
 				else if (aa.arenaName.equals(at)) 
 				{
 					aa.disabled = true;
-					sendMessage(ChatColor.GRAY + "Disabled " + at);
+					sendMessage(ChatColor.GRAY + "已禁止 " + at);
 				}
 			}
 		}
@@ -63,7 +63,7 @@ public class PCommandDisable extends UltimateArenaCommand
 				plugin.activeArena.get(ii).onDisable();
 			for (int ii = 0; ii < plugin.loadedArena.size(); ii++)
 				plugin.loadedArena.get(ii).disabled = true;
-			sendMessage(ChatColor.GRAY + "Disabled ALL arenas");
+			sendMessage(ChatColor.GRAY + "已禁止所有竞技场");
 		}
 	}
 }

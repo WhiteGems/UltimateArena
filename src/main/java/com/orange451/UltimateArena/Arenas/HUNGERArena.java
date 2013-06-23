@@ -86,11 +86,11 @@ public class HUNGERArena extends Arena
 					}
 					if (this.amtPlayersStartingInArena > 1)
 					{
-						this.rewardTeam(winningTeam, ChatColor.BLUE + "You won!", false);
+						this.rewardTeam(winningTeam, ChatColor.BLUE + "你获胜了!", false);
 					}
 					else
 					{
-						this.tellPlayers(ChatColor.BLUE + "Not enough people to play!");
+						this.tellPlayers(ChatColor.BLUE + "未达到能开始游戏的人数!");
 					}
 				}
 			}

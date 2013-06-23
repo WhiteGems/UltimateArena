@@ -15,7 +15,7 @@ public class PCommandInfo extends UltimateArenaCommand
 		super(plugin);
 		this.name = "info";
 		this.optionalArgs.add("arena");
-		this.description = "view info on the arena you''re in";
+		this.description = "查看你目前所在的竞技场的详细信息";
 		
 		this.mustBePlayer = true;
 	}
@@ -34,12 +34,12 @@ public class PCommandInfo extends UltimateArenaCommand
 					ArenaPlayer ap = plugin.getArenaPlayer(player);
 					if (ap != null)
 					{
-						String out = ChatColor.GREEN + "NOT OUT";
+						String out = ChatColor.GREEN + "未离开";
 						if (ap.out) 
 						{
-							out = ChatColor.RED + "OUT";
+							out = ChatColor.RED + "离开";
 						}
-						sendMessage(ChatColor.GRAY + "YOU ARE: " + out);
+						sendMessage(ChatColor.GRAY + "你处于: " + out);
 					}
 					List<ArenaPlayer> arr = ar.arenaplayers;
 					for (int i = 0; i < arr.size(); i++)
@@ -63,7 +63,7 @@ public class PCommandInfo extends UltimateArenaCommand
 			}
 			else
 			{
-				sendMessage(ChatColor.RED + "You are not in an arena!");
+				sendMessage(ChatColor.RED + "你不在竞技场内!");
 			}
 		}
 		else if (args.length == 1)
@@ -72,9 +72,9 @@ public class PCommandInfo extends UltimateArenaCommand
 			Arena ar = this.plugin.getArena(arenaname);
 			if (ar != null)
 			{
-				sendMessage(ChatColor.GRAY + "Arena: " + ChatColor.GOLD + arenaname);
-				sendMessage(ChatColor.GRAY + "Type: " + ChatColor.GOLD + ar.az.arenaType);
-				sendMessage(ChatColor.GRAY + "Players:");
+				sendMessage(ChatColor.GRAY + "竞技场: " + ChatColor.GOLD + arenaname);
+				sendMessage(ChatColor.GRAY + "类型: " + ChatColor.GOLD + ar.az.arenaType);
+				sendMessage(ChatColor.GRAY + "玩家:");
 				List<ArenaPlayer> arr = ar.arenaplayers;
 				if (arr.size() > 0)
 				{
@@ -97,17 +97,17 @@ public class PCommandInfo extends UltimateArenaCommand
 				}
 				else
 				{
-					sendMessage(ChatColor.RED + "No players in the arena");
+					sendMessage(ChatColor.RED + "竞技场内没有玩家");
 				}
 			}
 			else
 			{
-				sendMessage(ChatColor.GRAY + "This arena isn't running!");
+				sendMessage(ChatColor.GRAY + "这个竞技场尚未开始!");
 			}
 		}
 		else
 		{
-			sendMessage(ChatColor.GRAY + "Please supply an arena name");
+			sendMessage(ChatColor.GRAY + "请指明一个竞技场的名字");
 		}
 	}
 }

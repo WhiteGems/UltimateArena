@@ -11,7 +11,7 @@ public class PCommandSetPoint extends UltimateArenaCommand
 		this.name = "setpoint";
 		this.aliases.add("sp");
 		this.mode = "build";
-		this.description = "set a point of your field";
+		this.description = "为场地设置顶点";
 		this.permission = PermissionType.CMD_SET_POINT.permission;
 	}
 	

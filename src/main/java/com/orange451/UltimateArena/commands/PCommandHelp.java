@@ -13,7 +13,7 @@ public class PCommandHelp extends UltimateArenaCommand
 		this.aliases.add("h");
 		this.aliases.add("?");
 		this.optionalArgs.add("build/admin");
-		this.description = "display UA help";
+		this.description = "显示UA帮助";
 		
 		this.mustBePlayer = false;
 	}
@@ -27,11 +27,11 @@ public class PCommandHelp extends UltimateArenaCommand
 			mmode = args[0];
 			if (!mmode.equalsIgnoreCase("admin") && !mmode.equalsIgnoreCase("build"))
 			{
-				sendMessage("&cInvalid mode! Try: " + getUsageTemplate(false));
+				sendMessage("&c非法模式! 尝试: " + getUsageTemplate(false));
 				return;
 			}
 		}
-		sendMessage("&4==== &6{0} Help &4====", plugin.getName());
+		sendMessage("&4==== &6{0} 帮助 &4====", plugin.getName());
 		List<UltimateArenaCommand> commands = plugin.getCommandHandler().getRegisteredCommands();
 		for (int i=0; i<commands.size(); i++)
 		{

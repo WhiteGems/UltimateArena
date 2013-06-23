@@ -147,7 +147,7 @@ public class UltimateArena extends JavaPlugin
 		
 		long finish = System.currentTimeMillis();
 		
-		getLogger().info(getDescription().getFullName() + " has been enabled ("+(finish-start)+"ms)");
+		getLogger().info(getDescription().getFullName() + " 已被启用 ("+(finish-start)+"毫秒)");
 	}
 
 	@Override
@@ -164,7 +164,6 @@ public class UltimateArena extends JavaPlugin
 		{
 			sign.save();
 		}
-		
 		getServer().getServicesManager().unregisterAll(this);
 		getServer().getScheduler().cancelTasks(this);
 		
@@ -172,7 +171,7 @@ public class UltimateArena extends JavaPlugin
 		
 		long finish = System.currentTimeMillis();
 		
-		getLogger().info(getDescription().getFullName() + " has been disabled ("+(finish-start)+"ms)");
+		getLogger().info(getDescription().getFullName() + " 已被禁用 ("+(finish-start)+"毫秒)");
 	}
 	
 	public void createDirectories()
@@ -261,7 +260,7 @@ public class UltimateArena extends JavaPlugin
 				}
 			}
 			
-			getLogger().info("Loaded " + savedPlayers.size() + " saved players!");
+			getLogger().info("载入了 " + savedPlayers.size() + " 个保存的玩家!");
 		}
 	}
 
@@ -278,7 +277,7 @@ public class UltimateArena extends JavaPlugin
 			ArenaPlayer ap = getArenaPlayer(player);
 			if (ap != null)
 			{
-				getLogger().info("Player " + player.getName() + " leaving arena " + ar.name + " from quit");
+				getLogger().info("玩家 " + player.getName() + " 因退出游戏离开了竞技场 " + ar.name);
 				SavedArenaPlayer loggedOut = new SavedArenaPlayer(player.getName(), ap.baselevel, ap.spawnBack, ap.savedInventory, ap.savedArmor);
 						
 				savedPlayers.add(loggedOut);
@@ -354,7 +353,7 @@ public class UltimateArena extends JavaPlugin
 		}
 		else
 		{
-			player.sendMessage(ChatColor.RED + "Error, you are not in an arena");
+			player.sendMessage(ChatColor.RED + "错误, 你不在一个竞技场内");
 		}
 	}
 	
@@ -371,7 +370,7 @@ public class UltimateArena extends JavaPlugin
 			}
 		}
 		
-		getLogger().info("Loaded " + children.length + " arena files!");
+		getLogger().info("已载入 " + children.length + " 个竞技场文件!");
 	}
 	
 	public void loadConfigs() 
@@ -381,7 +380,7 @@ public class UltimateArena extends JavaPlugin
 			loadConfig(fieldTypes.get(i));
 		}
 		
-		getLogger().info("Loaded " + fieldTypes.size() + " arena configs!");
+		getLogger().info("已载入 " + fieldTypes.size() + " 个竞技场配置文件!");
 		
 		loadWhiteListedCommands();
 	}
@@ -391,7 +390,7 @@ public class UltimateArena extends JavaPlugin
 		File file = new File(getDataFolder(), "whiteListedCommands.yml");
 		if (!file.exists())
 		{
-			getLogger().info("Whitelisted commands file not found! Generating you a new one!");
+			getLogger().info("未找到白名单指令列表文件! 正在生成一个新的文件!");
 			fileHelper.generateWhitelistedCmds();
 		}
 		
@@ -402,7 +401,7 @@ public class UltimateArena extends JavaPlugin
 			wcmd.addCommand(whiteListed);
 		}
 		
-		getLogger().info("Loaded " + whiteListedCommands.size() + " Whitelisted Commands!");
+		getLogger().info("已载入 " + whiteListedCommands.size() + " 个白名单指令!");
 	}
 	
 	public void loadConfig(String str)
@@ -411,7 +410,7 @@ public class UltimateArena extends JavaPlugin
 		File file = new File(folder, str + "Config.yml");
 		if (!file.exists())
 		{
-			getLogger().info("Arena config for \"" + str + "\" not found! Generating you a new one!");
+			getLogger().info("未找到\"" + str + "\" 的竞技场配置文件! 正在生产一个新的文件!");
 			fileHelper.generateArenaConfig(str);
 		}
 		
@@ -426,7 +425,7 @@ public class UltimateArena extends JavaPlugin
 		if (children.length == 0)
 		{
 			fileHelper.generateStockClasses();
-			getLogger().info("No classes found! Generating stock classes!");
+			getLogger().info("未找到职业配置文件! 正在生成默认的职业配置!");
 		}
 
 		children = folder.listFiles();
@@ -437,7 +436,7 @@ public class UltimateArena extends JavaPlugin
 	        classes.add(ac);
 		}
 		
-		getLogger().info("Loaded " + children.length + " class files!");
+		getLogger().info("已载入 " + children.length + " 个职业文件!");
 	}
 	
 	public ArenaConfig getConfig(String type) 
@@ -519,12 +518,12 @@ public class UltimateArena extends JavaPlugin
 				
 			file.delete();
 			
-			player.sendMessage(ChatColor.YELLOW + "Successfully deleted arena: " + str + "!");
-			getLogger().info("Successfully deleted arena: " + str + "!");
+			player.sendMessage(ChatColor.YELLOW + "成功删除竞技场: " + str + "!");
+			getLogger().info("成功删除竞技场: " + str + "!");
 		}
 		else
 		{
-			player.sendMessage(ChatColor.RED + "Could not find an arena by the name of \"" + str + "\"!");
+			player.sendMessage(ChatColor.RED + "不能找到以 \"" + str + "\"命名的竞技场!");
 		}
 	}
 	
@@ -628,7 +627,7 @@ public class UltimateArena extends JavaPlugin
 		
 		if (isPlayerCreatingArena(player))
 		{
-			player.sendMessage(ChatColor.RED + "You are in the middle of making an arena!");
+			player.sendMessage(ChatColor.RED + "你已在制作竞技场的过程中!");
 			return;
 		}
 		
@@ -636,7 +635,7 @@ public class UltimateArena extends JavaPlugin
 		{
 			if (!getConfig().getBoolean("saveInventories"))
 			{
-				player.sendMessage(ChatColor.RED + "Please clear your inventory!");
+				player.sendMessage(ChatColor.RED + "请清空你的装备栏!");
 				return;
 			}
 		}
@@ -644,20 +643,20 @@ public class UltimateArena extends JavaPlugin
 		ArenaZone a = getArenaZone(name);
 		if (a == null)
 		{
-			player.sendMessage(ChatColor.RED + "That arena doesn't exist!");
+			player.sendMessage(ChatColor.RED + "那个竞技场不存在!");
 			return;
 		}
 		
 		if (isInArena(player))
 		{
-			player.sendMessage(ChatColor.RED + "You're already in an arena!");
+			player.sendMessage(ChatColor.RED + "你已在一个竞技场内!");
 			return;
 		}
 		
 		ArenaPlayer ap = getArenaPlayer(player);
 		if (ap != null)
 		{
-			player.sendMessage(ChatColor.RED + "You cannot leave and rejoin an arena!");
+			player.sendMessage(ChatColor.RED + "你不能离开并重新加入一个竞技场!");
 			return;
 		}
 		
@@ -665,7 +664,7 @@ public class UltimateArena extends JavaPlugin
 		{
 			if (waiting.get(i).player.getName().equals(player.getName()))
 			{
-				player.sendMessage(ChatColor.RED + "You are already waiting!");
+				player.sendMessage(ChatColor.RED + "你已在等待!");
 				return;
 			}
 		}
@@ -679,7 +678,7 @@ public class UltimateArena extends JavaPlugin
 			join.runTaskLater(this, wait);
 			waiting.add(join);
 			
-			String message = FormatUtil.format("&6Please stand still for {0} seconds!", seconds);
+			String message = FormatUtil.format("&6请站好不动并保持 {0} 秒钟!", seconds);
 			player.sendMessage(message);
 		}
 		else
@@ -695,7 +694,7 @@ public class UltimateArena extends JavaPlugin
 		{
 			if (getArena(name).starttimer < 1 && !forced) 
 			{
-				player.sendMessage(ChatColor.RED + "This arena has already started!");
+				player.sendMessage(ChatColor.RED + "这个竞技场已经开始了!");
 			}
 			else
 			{
@@ -708,7 +707,7 @@ public class UltimateArena extends JavaPlugin
 				}
 				else
 				{
-					player.sendMessage(ChatColor.RED + "This arena is full, sorry!");
+					player.sendMessage(ChatColor.RED + "这个竞技场已满, 很抱歉!");
 				}
 			}
 		}
@@ -783,7 +782,7 @@ public class UltimateArena extends JavaPlugin
 			}
 			else
 			{
-				player.sendMessage(ChatColor.RED + "Error, This arena is disabled!");
+				player.sendMessage(ChatColor.RED + "错误, 这个竞技场已被禁用!");
 			}
 		}
 	}
@@ -845,7 +844,7 @@ public class UltimateArena extends JavaPlugin
 		}
 		else
 		{
-			player.sendMessage(ChatColor.RED + "Error, you aren't editing a field!");
+			player.sendMessage(ChatColor.RED + "错误, 你并未在编辑竞技场!");
 		}
 	}
 	
@@ -858,7 +857,7 @@ public class UltimateArena extends JavaPlugin
 		}
 		else
 		{
-			player.sendMessage(ChatColor.RED + "Error, you aren't editing a field!");
+			player.sendMessage(ChatColor.RED + "错误, 你并未在编辑竞技场!");
 		}
 	}
 	
@@ -875,7 +874,7 @@ public class UltimateArena extends JavaPlugin
 			if (ac.player.equalsIgnoreCase(player.getName()))
 			{
 				makingArena.remove(ac);
-				player.sendMessage(FormatUtil.format("&eStopping the creation of {0}!", ac.arenaName));
+				player.sendMessage(FormatUtil.format("&e停止创造 {0}!", ac.arenaName));
 			}
 		}
 	}
@@ -897,13 +896,13 @@ public class UltimateArena extends JavaPlugin
 	{
 		if (isPlayerCreatingArena(player))
 		{
-			player.sendMessage(ChatColor.RED + "You are already creating an arena!");
+			player.sendMessage(ChatColor.RED + "你已在创建一个新的竞技场!");
 			return;
 		}
 		
 		if (!fieldTypes.contains(type.toLowerCase()))
 		{
-			player.sendMessage(ChatColor.RED + "This is not a valid field type!");
+			player.sendMessage(ChatColor.RED + "这不是一个可用的竞技场类型!");
 			return;
 		}
 		
@@ -911,12 +910,12 @@ public class UltimateArena extends JavaPlugin
 		{
 			if (az.arenaName.equalsIgnoreCase(name))
 			{
-				player.sendMessage(ChatColor.RED + "An arena by this name already exists!");
+				player.sendMessage(ChatColor.RED + "已经有一个竞技场使用那个名字了!");
 				return;
 			}
 		}
 		
-		getLogger().info(player.getName() + " is making arena " + name + ". Arena type: " + type);
+		getLogger().info(player.getName() + " 正在创建竞技场 " + name + ". 竞技场类型: " + type);
 		ArenaCreator ac = new ArenaCreator(this, player);
 		ac.setArena(name, type);
 		makingArena.add(ac);

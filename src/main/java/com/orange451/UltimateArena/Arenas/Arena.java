@@ -118,7 +118,7 @@ public abstract class Arena
 		}
 		
 		spawn(player.getName(), false);
-		player.sendMessage(ChatColor.GOLD + "You have joined the arena!");
+		player.sendMessage(ChatColor.GOLD + "你已加入竞技场!");
 		
 		// Basic things players need to play
 		player.setGameMode(GameMode.SURVIVAL);
@@ -155,13 +155,13 @@ public abstract class Arena
 	{
 		if (announced == 0) 
 		{
-			plugin.getServer().broadcastMessage(ChatColor.AQUA + az.arenaType + ChatColor.GOLD + " arena has been created!");
+			plugin.getServer().broadcastMessage(ChatColor.AQUA + az.arenaType + ChatColor.GOLD + " 竞技场已被创建!");
 		}
 		else
 		{
-			plugin.getServer().broadcastMessage(ChatColor.GOLD + "Hurry up and join the " + ChatColor.AQUA + az.arenaType + ChatColor.GOLD + " arena!");
+			plugin.getServer().broadcastMessage(ChatColor.GOLD + "加快速度然后加入 " + ChatColor.AQUA + az.arenaType + ChatColor.GOLD + " 竞技场!");
 		}
-		plugin.getServer().broadcastMessage(ChatColor.GOLD + "type " + ChatColor.AQUA + "/ua join " + az.arenaName + ChatColor.GOLD + " to join!");
+		plugin.getServer().broadcastMessage(ChatColor.GOLD + "输入 " + ChatColor.AQUA + "/ua join " + az.arenaName + ChatColor.GOLD + " 来加入!");
 		announced++;
 	}
 	
@@ -237,7 +237,7 @@ public abstract class Arena
 	
 	public void spawnAll() 
 	{
-		plugin.getLogger().info("Spawning all players for Arena \"" + az.arenaName + "\"!");
+		plugin.getLogger().info("为竞技场 \"" + az.arenaName + "\"刷出所有玩家!");
 		for (ArenaPlayer ap : arenaplayers)
 		{
 			if (ap != null && !ap.out)
@@ -400,7 +400,7 @@ public abstract class Arena
 				if (ap.points >= max)
 				{
 					reward(ap, Util.matchPlayer(ap.username), false);
-					this.tellPlayers(ChatColor.GRAY + "Player " + ChatColor.GOLD + ap.username + ChatColor.GRAY + " has won!");
+					this.tellPlayers(ChatColor.GRAY + "玩家 " + ChatColor.GOLD + ap.username + ChatColor.GRAY + " 获胜!");
 					stop();
 				}
 			}
@@ -543,18 +543,18 @@ public abstract class Arena
 				return;
 				
 			if (ap.killstreak == 2)
-				giveItem(pl, Material.POTION.getId(), (byte)9, 1, "2 kills! Unlocked strength potion!");
+				giveItem(pl, Material.POTION.getId(), (byte)9, 1, "双杀! 解锁力量药水!");
 				
 			if (ap.killstreak == 4)
 			{
-				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "4 kills! Unlocked Health potion!");
-				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "4 kills! Unlocked Food!");
+				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "四杀! 解锁生命药水!");
+				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "四杀! 解锁食物!");
 			}
 			if (ap.killstreak == 5) 
 			{
 				if (!(this.az.arenaType.equalsIgnoreCase("cq"))) 
 				{
-					pl.sendMessage(ChatColor.GOLD + "5 kills! Unlocked Zombies!");
+					pl.sendMessage(ChatColor.GOLD + "五杀! 解锁僵尸!");
 					for (int i = 0; i < 4; i++)
 					{
 						pl.getLocation().getWorld().spawnEntity(pl.getLocation(), EntityType.ZOMBIE);
@@ -563,7 +563,7 @@ public abstract class Arena
 			}
 			if (ap.killstreak == 8) 
 			{
-				pl.sendMessage(ChatColor.GOLD + "8 kills! Unlocked attackdogs!");
+				pl.sendMessage(ChatColor.GOLD + "八杀! 解锁军犬!");
 				for (int i = 0; i < 2; i++)
 				{
 					Wolf wolf = (Wolf) pl.getLocation().getWorld().spawnEntity(pl.getLocation(), EntityType.WOLF);
@@ -572,15 +572,15 @@ public abstract class Arena
 			}
 			if (ap.killstreak == 12)
 			{
-				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "12 kills! Unlocked Health potion!");
-				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "12 kills! Unlocked Food!");
+				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "十二杀! 解锁生命药水!");
+				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "十二杀! 解锁食物!");
 			}
 		}
 	}
 	
 	public void onDisable() 
 	{
-		tellPlayers(ChatColor.RED + "This arena has been disabled!");
+		tellPlayers(ChatColor.RED + "这个竞技场已被禁用!");
 		this.gametimer = -1;
 		disabled = true;
 		stop();
@@ -599,7 +599,7 @@ public abstract class Arena
 		stopped = true;
 		onStop();
 		
-		plugin.getLogger().info("Stopping arena \"" + name + "\"!");
+		plugin.getLogger().info("准备停止竞技场: \"" + name + "\"!");
 
 		for (ArenaPlayer ap : arenaplayers)
 		{
@@ -612,11 +612,11 @@ public abstract class Arena
 					{
 						if (gametimer <= maxgametime)
 						{
-							player.sendMessage(ChatColor.BLUE + "Game inturrupted/ended!");
+							player.sendMessage(ChatColor.BLUE + "游戏已停止!");
 						}
 						else
 						{
-							player.sendMessage(ChatColor.BLUE + "Game Over!");
+							player.sendMessage(ChatColor.BLUE + "游戏结束!");
 						}
 						endPlayer(ap, false);
 					}
@@ -660,7 +660,7 @@ public abstract class Arena
 								
 							if (!(plugin.isInArena(player.getLocation()))) 
 							{
-								plugin.getLogger().info(ap.player.getName() + " Got out of the Arena! Putting him back in!");
+								plugin.getLogger().info(ap.player.getName() + " 快死了! 赶紧把他救回来!");
 								ap.spawn();
 								spawn(ap.player.getName(), false);
 							}
@@ -695,7 +695,7 @@ public abstract class Arena
 			normalize(player);
 			returnXP(player);
 			ap.returnInventory();
-			player.sendMessage(ChatColor.BLUE + "Thanks for playing!");
+			player.sendMessage(ChatColor.BLUE + "多来玩玩!");
 						
 			plugin.removePotions(player);
 		}
@@ -708,7 +708,7 @@ public abstract class Arena
 		updatedTeams = true;
 		if (dead) 
 		{
-			player.sendMessage(ChatColor.BLUE + "You have exceeded the death limit!");
+			player.sendMessage(ChatColor.BLUE + "您已经超过了死亡数限制!");
 		}
 	}
 
@@ -865,41 +865,41 @@ public abstract class Arena
 					{
 						if (starttimer > 0 && starttimer < 11) 
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(starttimer) + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(starttimer) + ChatColor.GRAY + " 秒后开始!");
 						}
 						if (starttimer == 30) 
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "30 " + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "30 " + ChatColor.GRAY + " 秒后开始!");
 						}
 						if (starttimer == 60)
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "60 " + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "60 " + ChatColor.GRAY + " 秒后开始!");
 						}
 						if (starttimer == 45)
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "45 " + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "45 " + ChatColor.GRAY + " 秒后开始!");
 						}
 						if (starttimer == 15)
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "15 " + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "15 " + ChatColor.GRAY + " 秒后开始!");
 						}
 						if (starttimer == 120) 
 						{
-							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "120 " + ChatColor.GRAY + " second(s) until start!");
+							Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + "120 " + ChatColor.GRAY + " 秒后开始!");
 						}
 					}
 							
 					if (gametimer > 0 && gametimer < 21)
 					{
-						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(gametimer) + ChatColor.GRAY + " second(s) until end!");
+						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(gametimer) + ChatColor.GRAY + " 秒后结束!");
 					}
 					if (gametimer == 60 && maxgametime > 60)
 					{
-						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString((gametimer-60)/60) + ChatColor.GRAY + " minute(s) until end!");
+						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString((gametimer-60)/60) + ChatColor.GRAY + " 分钟后结束!");
 					}
 					if (gametimer == maxgametime/2) 
 					{
-						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(maxgametime/2) + ChatColor.GRAY + " second(s) until end!");
+						Util.matchPlayer(ap.player.getName()).sendMessage(ChatColor.GOLD + Integer.toString(maxgametime/2) + ChatColor.GRAY + " 秒后结束!");
 					}
 							
 					// TP players back when dead

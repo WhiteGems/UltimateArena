@@ -48,8 +48,8 @@ public class MOBArena extends Arena
 	{
 		if (wave > 0)
 		{
-			tellPlayers("&aYou survived the wave!");
-			tellPlayers("&aNow going to wave &c{0}", wave);
+			tellPlayers("&a你幸存过了这一波攻势!");
+			tellPlayers("&a接下来请准备第 &c{0} &a波", wave);
 		}
 		
 		wave++;
@@ -120,7 +120,7 @@ public class MOBArena extends Arena
 	public void onOutOfTime()
 	{
 		this.setWinningTeam(-1);
-		this.rewardTeam(winningTeam, ChatColor.BLUE + "You won!", false);
+		this.rewardTeam(winningTeam, ChatColor.BLUE + "你获胜了!", false);
 	}
 	
 	@Override
@@ -144,23 +144,23 @@ public class MOBArena extends Arena
 		if (pl != null) 
 		{
 			if (ap.killstreak == 8)
-				giveItem(pl, Material.POTION.getId(), (byte)9, 1, "8 kills! Unlocked strength potion!");
+				giveItem(pl, Material.POTION.getId(), (byte)9, 1, "八杀! 解锁力量药水!");
 			
 			if (ap.killstreak == 12)
-				giveItem(pl, Material.POTION.getId(), (byte)2, 1, "12 kills! Unlocked swiftness potion!");
+				giveItem(pl, Material.POTION.getId(), (byte)2, 1, "十二杀! 解锁迅捷药水!");
 				
 			if (ap.killstreak == 16)
-					giveItem(pl, Material.POTION.getId(), (byte)3, 1, "16 kills! Unlocked antifire!");
+					giveItem(pl, Material.POTION.getId(), (byte)3, 1, "十六杀! 解锁防火药水!");
 			
 			if (ap.killstreak == 24) 
 			{
-				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "24 kills! Unlocked Health potion!");
-				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "24 kills! Unlocked food!");
+				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "二十四杀! 解锁生命药水!");
+				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "二十四杀! 解锁食物!");
 			}
 				
 			if (ap.killstreak == 32) 
 			{
-				pl.sendMessage(ChatColor.GOLD + "32 kills! Unlocked attackdogs!");
+				pl.sendMessage(ChatColor.GOLD + "三十二杀! 解锁军犬!");
 				for (int i = 0; i < 3; i++)
 				{
 					Wolf wolf = (Wolf) pl.getLocation().getWorld().spawnEntity(pl.getLocation(), EntityType.WOLF);
@@ -170,15 +170,15 @@ public class MOBArena extends Arena
 				
 			if (ap.killstreak == 40) 
 			{
-				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "40 kills! Unlocked Health potion!");
-				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "40 kills! Unlocked food!");
+				giveItem(pl, Material.POTION.getId(), (byte)1, 1, "四十杀! 解锁生命药水!");
+				giveItem(pl, Material.GRILLED_PORK.getId(), (byte)0, 2, "四十杀! 解锁食物!");
 			}
 				
 			if (ap.killstreak == 72)
-				giveItem(pl, Material.GOLDEN_APPLE.getId(), (byte)0, 2, "72 kills! Unlocked Golden Apples!");
+				giveItem(pl, Material.GOLDEN_APPLE.getId(), (byte)0, 2, "七十二杀! 解锁金苹果!");
 
 			if (ap.killstreak == 112)
-				giveItem(pl, Material.GOLDEN_APPLE.getId(), (byte)0, 2, "112 kills! Unlocked Golden Apples!");
+				giveItem(pl, Material.GOLDEN_APPLE.getId(), (byte)0, 2, "一百一十二杀! 解锁金苹果!");
 		}
 	}
 	
@@ -209,15 +209,15 @@ public class MOBArena extends Arena
 				
 			if (amtPlayersInArena == 0) 
 			{
-				plugin.getLogger().info("Stopping Mob arena");
+				plugin.getLogger().info("正在停止怪物竞技场");
 				stop();
 			}
 			if (wave > maxwave) 
 			{
 				setWinningTeam(-1);
-				tellPlayers(ChatColor.GOLD + "You have beat the mob arena!");
+				tellPlayers(ChatColor.GOLD + "你战胜了怪物竞技场!");
 				stop();
-				rewardTeam(-1, ChatColor.BLUE + "You won!", false);
+				rewardTeam(-1, ChatColor.BLUE + "你获胜了!", false);
 			}
 		}
 	}

@@ -55,13 +55,13 @@ public abstract class UltimateArenaCommand implements CommandExecutor
 		
 		if (mustBePlayer && !isPlayer())
 		{
-			sendMessage("&cYou must be a player to execute this command!");
+			sendMessage("&c你必须是一名玩家才能执行这个指令!");
 			return;
 		}
 		
 		if (requiredArgs.size() > args.length) 
 		{
-			sendMessage("&cInvalid Arguments! (" + getUsageTemplate(false) + "&c)");
+			sendMessage("&c错误的参数! (" + getUsageTemplate(false) + "&c)");
 			return;
 		}
 		
@@ -69,8 +69,8 @@ public abstract class UltimateArenaCommand implements CommandExecutor
 			perform();
 		else
 		{
-			sendMessage("&cYou do not have permission to perform this command!");
-			log(Level.WARNING, sender.getName() + " was denied access to a command!");
+			sendMessage("&c你没有权限执行那个指令!");
+			log(Level.WARNING, sender.getName() + " 已被拒绝执行一个指令!");
 		}
 	}
 	

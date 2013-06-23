@@ -14,7 +14,7 @@ public class PCommandRefresh extends UltimateArenaCommand
 		this.aliases.add("reload");
 		this.aliases.add("rl");
 		this.mode = "admin";
-		this.description = "reload UltimateArena";
+		this.description = "重新载入 UltimateArena";
 		this.permission = PermissionType.CMD_REFRESH.permission;
 		
 		this.mustBePlayer = false;
@@ -25,15 +25,15 @@ public class PCommandRefresh extends UltimateArenaCommand
 	{
 		try
 		{
-			sendMessage("&aReloading UltimateArena...");
+			sendMessage("&a重新载入 UltimateArena 中...");
 			plugin.forceStop();
 			plugin.clearMemory();
 			plugin.onEnable();
-			sendMessage("&aReload Complete!");
+			sendMessage("&a重新载入完毕! 由Zesty全力驱动!");
 		}
 		catch(Exception e) 
 		{
-			log(Level.SEVERE, "Error while reloading: " + e.getMessage());
+			log(Level.SEVERE, "重新载入时发生错误: " + e.getMessage());
 		}
 	}
 }

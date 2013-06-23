@@ -89,7 +89,7 @@ public class CONQUESTArena extends Arena
 	
 	public void onPlayerDeath(ArenaPlayer pl) 
 	{
-		az.plugin.getLogger().info("Conquest: Player("+pl.player.getName()+") has died!");
+		az.plugin.getLogger().info("征服: 玩家("+pl.player.getName()+") 已阵亡!");
 		
 		int majority = 0;
 		int red = 0;
@@ -133,11 +133,11 @@ public class CONQUESTArena extends Arena
 					if (pl1 != null) {
 						if (arenaplayers.get(i).team == 1) 
 						{
-							pl1.sendMessage(ChatColor.RED + "Your power is now: " + ChatColor.GOLD + REDTEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "你的能量现已: " + ChatColor.GOLD + REDTEAMPOWER);
 						}
 						else
 						{
-							pl1.sendMessage(ChatColor.RED + "Other teams' power is now: " + ChatColor.GOLD + REDTEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "其他队伍的能量现已: " + ChatColor.GOLD + REDTEAMPOWER);
 						}
 					}
 				}
@@ -155,11 +155,11 @@ public class CONQUESTArena extends Arena
 					{
 						if (arenaplayers.get(i).team == 2)
 						{
-							pl1.sendMessage(ChatColor.RED + "Your power is now: " + ChatColor.GOLD + BLUETEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "你的能量现已: " + ChatColor.GOLD + BLUETEAMPOWER);
 						}
 						else
 						{
-							pl1.sendMessage(ChatColor.RED + "Other teams' power is now: " + ChatColor.GOLD + BLUETEAMPOWER);
+							pl1.sendMessage(ChatColor.RED + "其他队伍的能量现已: " + ChatColor.GOLD + BLUETEAMPOWER);
 						}
 					}
 				}
@@ -189,7 +189,7 @@ public class CONQUESTArena extends Arena
 						Player p = Util.matchPlayer(ap.player.getName());
 						if (p != null) 
 						{
-							p.sendMessage(ChatColor.RED + "Your team lost!");
+							p.sendMessage(ChatColor.RED + "你的队伍输了!");
 							endPlayer(ap, false);
 						}
 					}
@@ -203,7 +203,7 @@ public class CONQUESTArena extends Arena
 						Player p = Util.matchPlayer(ap.player.getName());
 						if (p != null)
 						{
-							p.sendMessage(ChatColor.RED + "Your team lost!");
+							p.sendMessage(ChatColor.RED + "你的队伍输了!");
 							endPlayer(ap, false);
 						}
 					}
@@ -213,13 +213,13 @@ public class CONQUESTArena extends Arena
 		
 		if (BLUETEAMPOWER <= 0)
 		{
-			this.tellPlayers(ChatColor.RED + "Red team won!");
+			this.tellPlayers(ChatColor.RED + "红队获胜!");
 			this.setWinningTeam(1);
 		}
 		
 		if (REDTEAMPOWER <= 0) 
 		{
-			this.tellPlayers(ChatColor.RED + "Blue team won!");
+			this.tellPlayers(ChatColor.RED + "蓝队获胜!");
 			this.setWinningTeam(2);
 		}
 			
@@ -234,7 +234,7 @@ public class CONQUESTArena extends Arena
 			if (!simpleTeamCheck(false)) 
 			{
 				stop();
-				this.rewardTeam(-1, ChatColor.BLUE + "You won!", false);
+				this.rewardTeam(-1, ChatColor.BLUE + "你赢了!", false);
 			}
 		}
 	}

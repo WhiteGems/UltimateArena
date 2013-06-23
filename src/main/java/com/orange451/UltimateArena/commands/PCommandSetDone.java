@@ -11,7 +11,7 @@ public class PCommandSetDone extends UltimateArenaCommand
 		this.name = "done";
 		this.aliases.add("d");
 		this.mode = "build";
-		this.description = "finalize a step in the UA creation process";
+		this.description = "结束 UA 中的创建过程";
 		this.permission = PermissionType.CMD_SET_DONE.permission;
 	}
 	

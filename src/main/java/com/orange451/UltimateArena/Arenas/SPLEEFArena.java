@@ -39,7 +39,7 @@ public class SPLEEFArena extends FFAArena
 		}
 		catch(Exception e) 
 		{
-			plugin.getLogger().severe("Error with spleef:");
+			plugin.getLogger().severe("Spleef模式出现错误:");
 			e.printStackTrace();
 		}
 	}
@@ -109,7 +109,7 @@ public class SPLEEFArena extends FFAArena
 		}
 		else
 		{
-			rewardTeam(-1, ChatColor.BLUE + "You won!", false);
+			rewardTeam(-1, ChatColor.BLUE + "你获胜了!", false);
 			stop();
 		}
 	}

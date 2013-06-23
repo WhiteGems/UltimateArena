@@ -92,7 +92,7 @@ public class EntityListener implements Listener
 							if (!a.allowTeamKilling) 
 							{
 								event.setCancelled(true);
-								shooter.sendMessage(ChatColor.RED + "You cannot hurt your teammate!");
+								shooter.sendMessage(ChatColor.RED + "你不能伤到你的队友!");
 							}
 						}
 					}
@@ -116,7 +116,7 @@ public class EntityListener implements Listener
 							if (!a.allowTeamKilling) 
 							{
 								event.setCancelled(true);
-								shooter.sendMessage(ChatColor.RED + "You cannot hurt your teammate!");
+								shooter.sendMessage(ChatColor.RED + "你不能伤到你的队友!");
 							}
 						}
 					}
@@ -147,11 +147,11 @@ public class EntityListener implements Listener
 						if (attacker.getItemInHand().getType().equals(Material.GOLD_AXE))
 						{
 							defender.setHealth(defender.getHealth()+2);
-							attacker.sendMessage(ChatColor.GRAY + "You have healed " + ChatColor.GOLD + defender.getName() + ChatColor.GRAY + " for 1 hearts");
+							attacker.sendMessage(ChatColor.GRAY + "你治愈了 " + ChatColor.GOLD + defender.getName() + ChatColor.GRAY + " 1颗心");
 						}
 						else
 						{
-							attacker.sendMessage(ChatColor.RED + "You cannot hurt your teammate!");
+							attacker.sendMessage(ChatColor.RED + "你不能伤到你的队友!");
 						}
 					}
 				}
@@ -200,11 +200,11 @@ public class EntityListener implements Listener
 								dp.killstreak = 0;
 								dp.deaths++;
 									
-								String line1 = ChatColor.GREEN + attackerName + ChatColor.WHITE + " killed " + ChatColor.RED + dead.getName();
-								String line2 = ChatColor.RED + dead.getName() + " You have been killed by " + attackerName;
+								String line1 = ChatColor.GREEN + attackerName + ChatColor.WHITE + " 杀死了 " + ChatColor.RED + dead.getName();
+								String line2 = ChatColor.RED + dead.getName() + " 你已被 " + attackerName + " 击杀";
 								String line3 = ChatColor.RED + "----------------------------";
-								String line4 = ChatColor.RED + "Kills: " + dp.kills;
-								String line5 = ChatColor.RED + "Deaths: " + dp.deaths;
+								String line4 = ChatColor.RED + "杀敌: " + dp.kills;
+								String line5 = ChatColor.RED + "死亡: " + dp.deaths;
 								String line6 = ChatColor.RED + "----------------------------";
 									
 								dead.sendMessage(line1);
@@ -224,9 +224,9 @@ public class EntityListener implements Listener
 										ap.killstreak++;
 										ap.XP += 100;
 										
-										line2  = ChatColor.RED + "killed " + dead.getName() + " +100 XP";
-										line4 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(attacker).kills;
-										line5 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(attacker).deaths;
+										line2  = ChatColor.RED + "杀死了 " + dead.getName() + " +100 XP";
+										line4 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(attacker).kills;
+										line5 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(attacker).deaths;
 										
 										attacker.sendMessage(line1);
 										attacker.sendMessage(line2);
@@ -272,10 +272,10 @@ public class EntityListener implements Listener
 													dp.killstreak = 0;
 													dp.deaths++;
 														
-													String line1 = ChatColor.GREEN + deadplayer.getName() + ChatColor.WHITE + " has been killed by " + ChatColor.RED + gunnerp;
+													String line1 = ChatColor.GREEN + deadplayer.getName() + ChatColor.WHITE + " 已被 " + ChatColor.RED + gunnerp + ChatColor.WHITE + " 杀死";
 													String line2 = ChatColor.RED + "----------------------------";
-													String line3 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(deadplayer).kills;
-													String line4 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(deadplayer).deaths;
+													String line3 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(deadplayer).kills;
+													String line4 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(deadplayer).deaths;
 													String line5 = ChatColor.RED + "----------------------------";
 												
 													deadplayer.sendMessage(line1);
@@ -295,10 +295,10 @@ public class EntityListener implements Listener
 													plugin.getArenaPlayer(gunner).kills++;
 													plugin.getArenaPlayer(gunner).XP += 25;
 														
-													String line1 = ChatColor.GREEN + gunnerp + ChatColor.WHITE + " killed " + ChatColor.RED + dead.getType().getName();
+													String line1 = ChatColor.GREEN + gunnerp + ChatColor.WHITE + " 杀死了 " + ChatColor.RED + dead.getType().getName();
 													String line2 = ChatColor.RED + "----------------------------";
-													String line3 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(gunner).kills;
-													String line4 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(gunner).deaths;
+													String line3 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(gunner).kills;
+													String line4 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(gunner).deaths;
 													String line5 = ChatColor.RED + "----------------------------";
 													
 													gunner.sendMessage(line1);
@@ -323,10 +323,10 @@ public class EntityListener implements Listener
 								plugin.getArenaPlayer(dead).killstreak = 0;
 								
 								plugin.getArenaPlayer(dead).deaths++;
-								String line2 = ChatColor.RED + dead.getName() + " You have been killed by " + dc.toString();
+								String line2 = ChatColor.RED + dead.getName() + " 你已被 " + dc.toString() + " 杀死";
 								String line3 = ChatColor.RED + "----------------------------";
-								String line4 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(dead).kills;
-								String line5 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(dead).deaths;
+								String line4 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(dead).kills;
+								String line5 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(dead).deaths;
 								String line6 = ChatColor.RED + "----------------------------";
 									
 								dead.sendMessage(line2);
@@ -369,10 +369,10 @@ public class EntityListener implements Listener
 													Player deadplayer = (Player)dead;
 													plugin.getArenaPlayer(deadplayer).killstreak = 0;
 													plugin.getArenaPlayer(deadplayer).deaths++;
-													String line1 = ChatColor.GREEN + deadplayer.getName() + ChatColor.WHITE + " has been killed by " + ChatColor.RED + gunnerp;
+													String line1 = ChatColor.GREEN + deadplayer.getName() + ChatColor.WHITE + " 已被 " + ChatColor.RED + gunnerp + ChatColor.WHITE + " 杀死";
 													String line2 = ChatColor.RED + "----------------------------";
-													String line3 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(deadplayer).kills;
-													String line4 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(deadplayer).deaths;
+													String line3 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(deadplayer).kills;
+													String line4 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(deadplayer).deaths;
 													String line5 = ChatColor.RED + "----------------------------";
 												
 													deadplayer.sendMessage(line1);
@@ -392,10 +392,10 @@ public class EntityListener implements Listener
 													plugin.getArenaPlayer(gunner).kills++;
 													plugin.getArenaPlayer(gunner).XP += 25;
 														
-													String line1 = ChatColor.GREEN + gunnerp + ChatColor.WHITE + " killed " + ChatColor.RED + dead.getType().getName();
+													String line1 = ChatColor.GREEN + gunnerp + ChatColor.WHITE + " 杀死了 " + ChatColor.RED + dead.getType().getName();
 													String line2 = ChatColor.RED + "----------------------------";
-													String line3 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(gunner).kills;
-													String line4 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(gunner).deaths;
+													String line3 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(gunner).kills;
+													String line4 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(gunner).deaths;
 													String line5 = ChatColor.RED + "----------------------------";
 													
 													gunner.sendMessage(line1);
@@ -442,11 +442,11 @@ public class EntityListener implements Listener
 										
 										String attstr = dead.getType().getName();
 										
-										String line1 = ChatColor.GREEN + attacker.getName() + ChatColor.WHITE + " killed " + ChatColor.RED + attstr;
-										String line2 = ChatColor.RED + "killed " + attstr + " +25 XP";
+										String line1 = ChatColor.GREEN + attacker.getName() + ChatColor.WHITE + " 杀死了 " + ChatColor.RED + attstr;
+										String line2 = ChatColor.RED + "杀死了 " + attstr + " +25 XP";
 										String line3 = ChatColor.RED + "----------------------------";
-										String line4 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(attacker).kills;
-										String line5 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(attacker).deaths;
+										String line4 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(attacker).kills;
+										String line5 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(attacker).deaths;
 										String line6 = ChatColor.RED + "----------------------------";
 											
 										attacker.sendMessage(line1);
@@ -483,11 +483,11 @@ public class EntityListener implements Listener
 											
 											String attstr = dead.getType().getName();
 												
-											String line1 = ChatColor.GREEN + attacker.getName() + ChatColor.WHITE + " killed " + ChatColor.RED + attstr;
-											String line2 = ChatColor.RED + "killed " + attstr + " +25 XP";
+											String line1 = ChatColor.GREEN + attacker.getName() + ChatColor.WHITE + " 杀死了 " + ChatColor.RED + attstr;
+											String line2 = ChatColor.RED + "杀死了 " + attstr + " +25 XP";
 											String line3 = ChatColor.RED + "----------------------------";
-											String line4 = ChatColor.RED + "Kills: " + plugin.getArenaPlayer(attacker).kills;
-											String line5 = ChatColor.RED + "Deaths: " + plugin.getArenaPlayer(attacker).deaths;
+											String line4 = ChatColor.RED + "杀敌: " + plugin.getArenaPlayer(attacker).kills;
+											String line5 = ChatColor.RED + "死亡: " + plugin.getArenaPlayer(attacker).deaths;
 											String line6 = ChatColor.RED + "----------------------------";
 											
 											attacker.sendMessage(line1);

@@ -9,7 +9,7 @@ public class PCommandLeave extends UltimateArenaCommand
 		super(plugin);
 		this.name = "leave";
 		this.aliases.add("l");
-		this.description = "leave an arena";
+		this.description = "离开一个竞技场";
 	}
 	
 	@Override

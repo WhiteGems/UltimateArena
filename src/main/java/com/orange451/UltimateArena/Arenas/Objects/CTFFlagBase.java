@@ -69,7 +69,7 @@ public class CTFFlagBase extends FlagBase
 							{ 
 								//if hes close to my flag stand, REWARD!
 								enemyflag.respawn();
-								p.sendMessage(ChatColor.GRAY + "Flag Captured! " + ChatColor.RED + " +500 XP");
+								p.sendMessage(ChatColor.GRAY + "旗帜已成功抢夺! " + ChatColor.RED + " +500 XP");
 								
 								p.removePotionEffect(PotionEffectType.SLOW);
 								p.removePotionEffect(PotionEffectType.DAMAGE_RESISTANCE);
@@ -83,7 +83,7 @@ public class CTFFlagBase extends FlagBase
 										{
 											if (ap.team == a.team)
 											{
-												ap.player.sendMessage(ChatColor.GREEN + "Unlocked 10 seconds of crits!");
+												ap.player.sendMessage(ChatColor.GREEN + "解锁暴击10秒钟!");
 												ap.player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20 * 10, 1));
 												ap.player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 20 * 10, 1));
 											}
@@ -96,16 +96,16 @@ public class CTFFlagBase extends FlagBase
 								}
 								
 								a.XP += 500;
-								arena.tellPlayers(ChatColor.GREEN + a.player.getName() + ChatColor.GRAY + " captured the " + enemyflag.flagType + ChatColor.GRAY + " flag");
+								arena.tellPlayers(ChatColor.GREEN + a.player.getName() + ChatColor.GRAY + " 抢夺了 " + enemyflag.flagType + ChatColor.GRAY + " 的旗帜");
 								if (team == 1)
 								{
 									ctf.redcap++;
-									arena.tellPlayers("&c{0} &7team has &a{1}&7/&a3 &7captures!", TeamHelper.getTeam(team), ctf.redcap);
+									arena.tellPlayers("&c{0} &7队已经进行 &a{1}&7/&a3 &7次抢夺!", TeamHelper.getTeam(team), ctf.redcap);
 								}
 								if (team == 2) 
 								{
 									ctf.bluecap++;
-									arena.tellPlayers("&c{0} &7team has &a{1}&7/&a3 &7captures!", TeamHelper.getTeam(team), ctf.bluecap);
+									arena.tellPlayers("&c{0} &7队已经进行 &a{1}&7/&a3 &7次抢夺!", TeamHelper.getTeam(team), ctf.bluecap);
 								}
 								return;
 							}
@@ -115,7 +115,7 @@ public class CTFFlagBase extends FlagBase
 			}
 			catch(Exception e) 
 			{
-				plugin.getLogger().severe("Error with CTF flagbase: " + e.getMessage());
+				plugin.getLogger().severe("载入夺旗模式旗帜点出现问题: " + e.getMessage());
 			}
 		}
 	}

@@ -12,7 +12,7 @@ public class PCommandDelete extends UltimateArenaCommand
 		this.aliases.add("x");
 		this.requiredArgs.add("arena");
 		this.mode = "build";
-		this.description = "delete an arena";
+		this.description = "删除一个竞技场";
 		this.permission = PermissionType.CMD_DELETE.permission;
 	}
 	

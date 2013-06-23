@@ -63,7 +63,7 @@ public class PlayerListener implements Listener
 		{
 			if (plugin.isInArena(player.getLocation())) 
 			{
-				if (event.getReason().equals("You moved too quickly :( (Hacking?)")) 
+				if (event.getReason().equals("你移动的速度实在是太快了 :( (作弊了吧?)"))
 				{
 					event.setCancelled(true);
 				}
@@ -150,16 +150,16 @@ public class PlayerListener implements Listener
 									if (arc.checkPermission(player))
 									{
 										ac.mclass = arc;
-										player.sendMessage(ChatColor.GRAY + "You will spawn as a(n): " + ChatColor.GOLD + line1);
+										player.sendMessage(ChatColor.GRAY + "你即将以此职业出生: " + ChatColor.GOLD + line1);
 									}
 									else 
 									{
-										player.sendMessage(ChatColor.RED + "You do not have the necessary perms for this class");
+										player.sendMessage(ChatColor.RED + "你没有使用这个职业的权限");
 									}
 								} 
 								else 
 								{
-									player.sendMessage(ChatColor.RED + "Error: \"" + line1 + "\" is not a class!");
+									player.sendMessage(ChatColor.RED + "错误: \"" + line1 + "\" 并不是一个职业!");
 								}
 							}
 						}
@@ -314,7 +314,7 @@ public class PlayerListener implements Listener
 		{
 			if (plugin.waiting.get(i).player.getName().equals(p.getName()))
 			{
-				plugin.waiting.get(i).player.sendMessage(ChatColor.RED + "Cancelled!");
+				plugin.waiting.get(i).player.sendMessage(ChatColor.RED + "已取消!");
 				plugin.waiting.get(i).cancel();
 				plugin.waiting.remove(i);
 			}
@@ -328,8 +328,8 @@ public class PlayerListener implements Listener
 		String[] check = cmd.split(" ");
 		if (!cmd.contains("/ua") && plugin.isInArena(event.getPlayer()) && !plugin.wcmd.isAllowed(check))
 		{
-			event.getPlayer().sendMessage(ChatColor.GRAY + "You cannot use non-ua commands in an arena!");
-			event.getPlayer().sendMessage(ChatColor.GRAY + "If you wish to use commands again, use " + ChatColor.LIGHT_PURPLE + "/ua leave");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "你不能在竞技场内使用非UA插件的指令!");
+			event.getPlayer().sendMessage(ChatColor.GRAY + "如果你想再次使用指令, 请输入 " + ChatColor.LIGHT_PURPLE + "/ua leave");
 			event.setCancelled(true);
 			return;
 		}

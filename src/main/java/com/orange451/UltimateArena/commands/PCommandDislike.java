@@ -13,7 +13,7 @@ public class PCommandDislike extends UltimateArenaCommand
 		this.name = "dislike";
 		this.aliases.add("d");
 		this.requiredArgs.add("arena");
-		this.description = "dislike an arena";
+		this.description = "不喜欢一个竞技场";
 	}
 	
 	@Override
@@ -25,19 +25,19 @@ public class PCommandDislike extends UltimateArenaCommand
 		{
 			if (az.canLike(player))
 			{
-				sendMessage("&cYou have disliked: " + az.arenaName);
+				sendMessage("&c你选择了不喜欢: " + az.arenaName);
 				
 				az.disliked++;
 				az.voted.add(player.getName());
 			}
 			else
 			{
-				sendMessage(ChatColor.RED + "You already voted for this arena!");
+				sendMessage(ChatColor.RED + "你已为这个竞技场投过票!");
 			}
 		}
 		else
 		{
-			sendMessage(ChatColor.RED + "This arena doesn't exist!");
+			sendMessage(ChatColor.RED + "这个竞技场并不存在!");
 		}
 	}
 }

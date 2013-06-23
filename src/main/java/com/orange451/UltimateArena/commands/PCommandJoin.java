@@ -10,7 +10,7 @@ public class PCommandJoin extends UltimateArenaCommand
 		this.name = "join";
 		this.aliases.add("j");
 		this.requiredArgs.add("arena");
-		this.description = "join/start an UltimateArena";
+		this.description = "加入或开始一个 UltimateArena 竞技场";
 		
 		this.mustBePlayer = true;
 	}

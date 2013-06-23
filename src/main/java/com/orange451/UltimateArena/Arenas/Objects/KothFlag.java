@@ -43,7 +43,7 @@ public class KothFlag extends ArenaFlag
 			{
 				Player pl = capturer.player;
 				capturer.points++;
-				pl.sendMessage(ChatColor.GRAY + "You have capped for 1 point! " + ChatColor.LIGHT_PURPLE + capturer.points + " / " + marena.MAXPOWER);
+				pl.sendMessage(ChatColor.GRAY + "你已获得1分! " + ChatColor.LIGHT_PURPLE + capturer.points + " / " + marena.MAXPOWER);
 			}
 		}
 	}

@@ -18,7 +18,7 @@ public class PCommandKick extends UltimateArenaCommand
 		this.aliases.add("k");
 		this.requiredArgs.add("player");
 		this.mode = "admin";
-		this.description = "kick a player from an arena";
+		this.description = "将一名玩家踢出一个竞技场";
 		this.permission = PermissionType.CMD_KICK.permission;
 		
 		this.mustBePlayer = false;
@@ -42,17 +42,17 @@ public class PCommandKick extends UltimateArenaCommand
 					ap.points = 0;
 					ap.kills = 0;
 					ap.XP = 0;
-					sendMessage(ChatColor.GRAY + "Kicked player: " + ChatColor.GOLD + p.getName() + ChatColor.GRAY + " from arena: " + ChatColor.GOLD + a.name);
+					sendMessage(ChatColor.GRAY + "踢出玩家: " + ChatColor.GOLD + p.getName() + ChatColor.GRAY + " 于竞技场: " + ChatColor.GOLD + a.name);
 				}
 			}
 			else
 			{
-				sendMessage(ChatColor.GRAY + "Player: " + ChatColor.GOLD + p.getName() + ChatColor.GRAY + " is not in an Arena");
+				sendMessage(ChatColor.GRAY + "玩家: " + ChatColor.GOLD + p.getName() + ChatColor.GRAY + " 不在一个竞技场内");
 			}
 		}
 		else
 		{
-			sendMessage(ChatColor.GRAY + "Player: \"" + ChatColor.GOLD + args[0] + ChatColor.GRAY + "\" is not online");
+			sendMessage(ChatColor.GRAY + "玩家: \"" + ChatColor.GOLD + args[0] + ChatColor.GRAY + "\" 不在线");
 		}
 	}
 }

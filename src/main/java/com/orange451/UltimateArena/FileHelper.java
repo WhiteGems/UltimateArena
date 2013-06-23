@@ -63,7 +63,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving whitelisted cmds file: " + e.getMessage());
+			plugin.getLogger().severe("保存指令白名单文件时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -251,7 +251,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error generating config \"" + field + "\": " + e.getMessage());
+			plugin.getLogger().severe("在生成配置 \"" + field + "\"时发生错误: " + e.getMessage());
 		}
 	}
 
@@ -270,7 +270,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving archer file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存archer.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(archerFile, "archer");
 		
@@ -282,7 +282,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving brute file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存brute.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(bruteFile, "brute");
 		
@@ -294,7 +294,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving dumbass file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存dumbass.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(dumbassFile, "dumbass");
 		
@@ -306,7 +306,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving gunner file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存gunner.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(gunnerFile, "gunner");
 		
@@ -318,7 +318,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving healer file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存healer.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(healerFile, "healer");
 		
@@ -330,7 +330,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving shotgun file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存shotgun.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(shotgunFile, "shotgun");
 		
@@ -342,7 +342,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving sniper file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存sniper.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(sniperFile, "sniper");
 		
@@ -354,7 +354,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving spleef file: " + e.getMessage()); 
+			plugin.getLogger().severe("在保存spleef.yml文件时发生错误: " + e.getMessage());
 		}
 		generateClass(spleefFile, "spleef");
 	}
@@ -459,7 +459,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving \"" + type + "\" file: " + e.getMessage());
+			plugin.getLogger().severe("保存 \"" + type + "\" 文件时发生错误: " + e.getMessage());
 		}
 	}
 
@@ -723,7 +723,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving arena \"" + az.arenaName + "\": " + e.getMessage());
+			plugin.getLogger().severe("保存竞技场 \"" + az.arenaName + "\"时发生错误: " + e.getMessage());
 		}
 	}
 	
@@ -888,7 +888,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error loading arena \"" + az.arenaName + "\": " + e.getMessage());
+			plugin.getLogger().severe("载入竞技场 \"" + az.arenaName + "\"时发生错误: " + e.getMessage());
 			az.loaded = false;
 		}
 	}
@@ -1020,7 +1020,7 @@ public class FileHelper
 		}
 		catch (Exception e)
 		{
-			plugin.getLogger().severe("Error saving player " + player.getName() + ": " + e.getMessage());
+			plugin.getLogger().severe("保存玩家 " + player.getName() + " 时发生错误: " + e.getMessage());
 		}
 	}
 	

@@ -15,7 +15,7 @@ public class PCommandList extends UltimateArenaCommand
 		super(plugin);
 		this.name = "list";
 		this.aliases.add("li");
-		this.description = "view all the UltimateArenas";
+		this.description = "列出所有的 UltimateArena 竞技场";
 		
 		this.mustBePlayer = false;
 	}
@@ -32,13 +32,13 @@ public class PCommandList extends UltimateArenaCommand
 			String arena = arenas.get(i).arenaName;
 			String type = arenas.get(i).arenaType;
 				
-			String arenaType = ChatColor.GOLD + "[" + ChatColor.RED + type + " Arena" + ChatColor.GOLD + "]";
+			String arenaType = ChatColor.GOLD + "[" + ChatColor.RED + type + " 竞技场" + ChatColor.GOLD + "]";
 			String arenaName = ChatColor.RED + arena;
 			String arenaMode = "";
 			String plays = ChatColor.YELLOW + "[" + arenas.get(i).timesPlayed + "]";
-			arenaMode = ChatColor.GREEN + "[FREE]";
+			arenaMode = ChatColor.GREEN + "[自由]";
 			if (arenas.get(i).disabled)
-				arenaMode = ChatColor.DARK_RED + "[DISABLED]";
+				arenaMode = ChatColor.DARK_RED + "[禁用]";
 				
 			for (int ii = 0; ii < activearenas.size(); ii++) 
 			{
@@ -49,16 +49,16 @@ public class PCommandList extends UltimateArenaCommand
 					{
 						if (ar.starttimer > 0)
 						{
-							arenaMode = ChatColor.YELLOW + "[LOBBY  |  " + Integer.toString(ar.starttimer) + " seconds]";
+							arenaMode = ChatColor.YELLOW + "[大厅  |  " + Integer.toString(ar.starttimer) + " 秒]";
 						}
 						else
 						{
-							arenaMode = ChatColor.DARK_RED + "[BUSY]";
+							arenaMode = ChatColor.DARK_RED + "[正忙]";
 						}
 					}
 					else
 					{
-						arenaMode = ChatColor.DARK_RED + "[DISABLED]";
+						arenaMode = ChatColor.DARK_RED + "[禁用]";
 					}
 				}
 			}

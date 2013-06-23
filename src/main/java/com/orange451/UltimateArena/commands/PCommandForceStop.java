@@ -12,7 +12,7 @@ public class PCommandForceStop extends UltimateArenaCommand
 		this.aliases.add("fs");
 		this.optionalArgs.add("arena");
 		this.mode = "admin";
-		this.description = "force stop an arena";
+		this.description = "尝试种植一个竞技场";
 		this.permission = PermissionType.CMD_FORCE_STOP.permission;
 		
 		this.mustBePlayer = false;

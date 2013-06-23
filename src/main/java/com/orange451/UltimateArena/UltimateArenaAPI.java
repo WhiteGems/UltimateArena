@@ -105,7 +105,7 @@ public class UltimateArenaAPI
 		}
 		else
 		{
-			Bukkit.getLogger().severe("Could not hook into UltimateArena! Is it installed?");
+			Bukkit.getLogger().severe("不能钩至UltimateArena! 确定安装过吗?");
 		}
 		return null;
 	}

@@ -71,7 +71,7 @@ public class CommandHandler implements CommandExecutor
 					return true;
 				}
 			}
-			sender.sendMessage(ChatColor.YELLOW + "Unknown UltimateArena command \"" + args[0] + "\". Try /ua help!");
+			sender.sendMessage(ChatColor.YELLOW + "未知的 UltimateArena 指令 \"" + args[0] + "\". 输入 /ua help!");
 		} 
 		else 
 		{
